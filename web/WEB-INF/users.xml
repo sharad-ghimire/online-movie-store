@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <email>pramish@gmail.com</email>
+        <name>Pramish Luitel</name>
+        <password>blahblah</password>
+        <genphonenumberder>0123456789</phonenumber>
+        <address>7/635-637 Princes Highway</address>
+    </user>
+    <user>
+        <email>sharad@gmail.com</email>
+        <name>Sharad Ghimire</name>
+        <password>foobar</password>
+        <phonenumber>male</phonenumber>
+        <address>3/22 Princes Highway</address>
+    </user>
+</users>
