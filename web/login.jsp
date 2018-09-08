@@ -1,33 +1,20 @@
 <%-- 
     Document   : login
-    Created on : 03/09/2018, 5:18:58 PM
-    Author     : pramishluitel
+    Created on : 08/09/2018, 7:13:16 PM
+    Author     : srd
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP---++++≠≠Page</title>
-    </head>
-    <body background="Movie_night.jpg">
-        <form action="main.jsp" method="post">
-            
-        <table>
-            <tr>
-                <th>Email: </th>
-                <th><input type="text" name ="name"></th>
-            </tr>
-            <tr>
-                <th>Password: </th>
-                <th><input type="password" name ="password"></th>
-            </tr>
-            <tr>
-                <th><th><th><input type="submit" value="Login"></th></th></th>
-            </tr>
-        </table>
-            
-                
+<%@include file="header.jsp" %>
+<% String error = (String) request.getParameter("error"); %>
+        <h1> Log In</h1>
+        <p><span style="color: red"><% if(error != null){ out.print(error);  } %></span></p>
+        <form action="loginController.jsp" method="POST">
+            <label for="email">Email</label>
+            <input type="text" name="email">
+            <label for="password">Password</label>
+            <input type="password" name="password">
+            <button type="submit" class="btn">Log In</button> 
+        </form>
     </body>
 </html>
