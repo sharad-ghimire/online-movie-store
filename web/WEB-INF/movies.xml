@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root>
-    
-</root>
+<movies>
+    <movie>
+        <title>Avengers</title>
+        <genre>Superheroes</genre>
+        <date>Sat Sep 08 22:18:20 AEST 2018</date>
+        <price>29.99</price>
+        <copies>57</copies>
+    </movie>
+        <movie>
+        <title>Whatever</title>
+        <genre>whatever</genre>
+        <date>Sat Sep 08 22:18:20 AEST 2018</date>
+        <price>29.99</price>
+        <copies>57</copies>
+    </movie>
+</movies>

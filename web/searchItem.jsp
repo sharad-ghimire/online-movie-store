@@ -5,7 +5,7 @@
             <option value="genre">Genre</option>
            <option value="rYear">Release Year</option>
         </select>
-        <input type="text" id="inputIt" name="search" placeholder="Search By Title . . .">
+        <input type="text" id="inputIt" name="title" placeholder="Search By Title . . .">
         <div id="dates" style="display: none">
             From: <input type="date" name="fromDate"> to: <input type="date" name="toDate">
         </div>
@@ -24,6 +24,7 @@
         } else if (value === "genre"){
             document.getElementById("inputIt").style.display = "inline"; 
             var input = document.getElementById("inputIt");
+            input.name = "genre"
             input.placeholder = "Search By Genre . . .";
             document.getElementById("dates").style.display = "none"; 
             
