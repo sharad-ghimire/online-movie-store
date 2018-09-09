@@ -1,15 +1,15 @@
-<%@page import="uts.ass.models.*"%>
+<%@page import="uts.users.*"%>
 <% 
     String filePath = application.getRealPath("WEB-INF/users.xml");
     
-    MovieStore movieApp = (MovieStore) application.getAttribute("movieApp");
-    if (movieApp == null) {
-        movieApp = new MovieStore();
-        movieApp.setFilePath(filePath);
-        application.setAttribute("movieApp", movieApp);    
+    UserApplication userApp = (UserApplication) application.getAttribute("movieApp");
+    if (userApp == null) {
+        userApp = new UserApplication();
+        userApp.setFilePath(filePath);
+        application.setAttribute("userApp", userApp);    
     }
     
-    Users users = movieApp.getUsers();
+    Users users = userApp.getUsers();
     String email = request.getParameter("email");
     String password = request.getParameter("password");
  

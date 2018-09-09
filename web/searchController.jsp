@@ -9,9 +9,19 @@
 <%Movies movies = moviesApp.getMovies();%>
 <%
     String genre = request.getParameter("genre");
-    ArrayList<Movie> movieList = new ArrayList(); 
-    movieList = movies.getMatchesForGenre(genre);
+    String title = request.getParameter("title");
+    
+    ArrayList<Movie> movieList = new ArrayList();
+    
+    if(title == null && genre != null){
+        movieList = movies.getMatchesForGenre(genre);
+    } else if (title != null && genre == null){
+        movieList = movies.getMatchesForTitle(title);  
+    } else {
+        response.sendRedirect("404.jsp");
+    }
 %>
+<%@include file="index.jsp" %>
 <c:set var = "xmltext"> 
     <movies>
     <%  for (Movie movie: movieList) {   %>
