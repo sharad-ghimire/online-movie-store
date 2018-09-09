@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.util.Date"%>
-<%@page import="uts.ass.models.User"%>
+<%@page import="uts.users.User"%>
 <%@include file="header.jsp" %>
 
 <%

@@ -1,5 +1,6 @@
-package uts.ass.models;
+package uts.users;
 
+import uts.movies.Movies;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import javax.xml.bind.JAXBContext;
@@ -10,13 +11,13 @@ import javax.xml.bind.Unmarshaller;
  *
  * @author srd
  */
-public class MovieStore {
+public class UserApplication {
     private String filePath;
     private String filePathOfMovies;
     private Users users;
     private Movies movies;
     
-    public MovieStore() {
+    public UserApplication() {
         
     }
     
@@ -35,6 +36,9 @@ public class MovieStore {
     
     public Users getUsers() {
 	return users;
+    }
+    public Movies getMovies() {
+	return movies;
     }
     
     

@@ -1,4 +1,4 @@
-package uts.ass.models;
+package uts.users;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlAccessType;
