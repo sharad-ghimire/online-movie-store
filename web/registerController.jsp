@@ -1,6 +1,5 @@
 <%@page import="uts.users.*"%>
 <%
-
     String name = request.getParameter("name");
     String email = request.getParameter("email");
     String password = request.getParameter("password");

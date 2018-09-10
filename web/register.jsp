@@ -15,7 +15,6 @@
             <label><input type="radio" name="gender" value="female" /><span>Female</span></label>
             
             <label><input type="checkbox" name="tos"/><span>Agree to TOS</span></label>
-            
             <button type="submit" class="btn teal">Register</button>
         </form>
     </body>
