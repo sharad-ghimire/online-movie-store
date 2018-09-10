@@ -18,8 +18,6 @@ else if (registeredUser!=null & loggedUser==null) {%>
 <%@include file="searchItem.jsp" %>
 <% } 
 
-
-
 else {
         System.out.print(new Date().toString()); %>     
 
