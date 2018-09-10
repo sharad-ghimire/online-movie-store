@@ -1,4 +1,4 @@
-<%@page import="uts.ass.models.*"%>
+<%@page import="uts.users.*"%>
 <%
 
     String name = request.getParameter("name");
@@ -9,9 +9,9 @@
     
     String filePath = application.getRealPath("WEB-INF/users.xml");
     
-    MovieStore movieApp = new MovieStore();
-    movieApp.setFilePath(filePath);
-    Users users = movieApp.getUsers();
+    UserApplication userApp = new UserApplication();
+    userApp.setFilePath(filePath);
+    Users users = userApp.getUsers();
     
     User anotherUser = users.emailChecker(email);
     
@@ -19,9 +19,9 @@
         User user = new User(email, name, password, gender);
         session.setAttribute("registeredUser", user);
         users.addUser(user);
-        
-        movieApp.saveUsers(users, filePath);
-        movieApp.updateXML();
+
+        userApp.saveUsers(users, filePath);
+        userApp.updateXML();
         response.sendRedirect("index.jsp");  
     } else if (anotherUser != null) {
         response.sendRedirect("register.jsp?error=This Email Address is already Used");
