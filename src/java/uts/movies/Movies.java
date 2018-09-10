@@ -64,16 +64,16 @@ public class Movies implements Serializable{
                 matches.add(movie);
         return matches;
     }    
-//    public ArrayList findByDate(Date fromDate, Date toDate){
-//        
-//        for(Movie movie: listOfMovies){
-//            Date mainDate = movie.getDate();
-//            ArrayList<Movie> list = new ArrayList<>();
-//            if(mainDate.after(fromDate) && mainDate.before(toDate)){
-//                list.add(movie);
-//            }
-//            return list;
-//        }
-//        return null;
-//    }   
+    public ArrayList findByDate(Date fromDate, Date toDate){
+        
+        for(Movie movie: listOfMovies){
+            Date mainDate = movie.getDate();
+            ArrayList<Movie> list = new ArrayList<>();
+            if(mainDate.after(fromDate) && mainDate.before(toDate)){
+                list.add(movie);
+            }
+            return list;
+        }
+        return null;
+    }   
 }

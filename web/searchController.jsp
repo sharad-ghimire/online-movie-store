@@ -1,3 +1,5 @@
+
+<%@page import="java.util.Date"%>
 <%@page import="uts.movies.*" import="java.util.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
@@ -8,16 +10,23 @@
 </jsp:useBean>
 <%Movies movies = moviesApp.getMovies();%>
 <%
+    //Date date = new Date();
+    
     String genre = request.getParameter("genre");
     String title = request.getParameter("title");
+    
     
     ArrayList<Movie> movieList = new ArrayList();
     
     if(title == null && genre != null){
         movieList = movies.getMatchesForGenre(genre);
     } else if (title != null && genre == null){
-        movieList = movies.getMatchesForTitle(title);  
-    } else {
+        movieList = movies.getMatchesForTitle(title); 
+        
+    }
+    //else if(date.equals(date))
+    
+    else {
         response.sendRedirect("404.jsp");
     }
 %>
@@ -36,5 +45,6 @@
     <%}%>
   </movies>
 </c:set>
-<c:import url = "file:\\C:\\Home\\JSP-projects\\movie-store\\web\\WEB-INF\\movies.xsl" var = "xslt"/>
+<c:import url = "file:\\Users\\pramishluitel\\Desktop\\UTS \\Fifth Semester\\Web Services Development\\Assignment Files\\online-movie-store\\web\\WEB-INF\\movies.xsl" var = "xslt"/>
+
 <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
