@@ -6,6 +6,7 @@
 package uts.movies;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -57,23 +58,12 @@ public class Movies implements Serializable{
         return matches;
     }
     
-    public ArrayList<Movie> getMatchesForDate(Date date){
+    public ArrayList<Movie> getMatchesForDate(String date1, String date2) throws ParseException{
         ArrayList<Movie> matches = new ArrayList<>();
+        
         for(Movie movie:listOfMovies)
-            if(movie.matchDate(date))
+            if(movie.matchDate(date1, date2))
                 matches.add(movie);
         return matches;
     }    
-    public ArrayList findByDate(Date fromDate, Date toDate){
-        
-        for(Movie movie: listOfMovies){
-            Date mainDate = movie.getDate();
-            ArrayList<Movie> list = new ArrayList<>();
-            if(mainDate.after(fromDate) && mainDate.before(toDate)){
-                list.add(movie);
-            }
-            return list;
-        }
-        return null;
-    }   
 }

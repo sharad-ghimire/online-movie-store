@@ -23,7 +23,7 @@
             <h5 class="card-title"><xsl:value-of select="title"/></h5>
             <p class="card-text"> Price: $<xsl:value-of select="price"/></p>
             <p class="card-text"> Available Copies: $<xsl:value-of select="copies"/></p>
-            <a href="#" class="btn btn-primary">Purchase</a>
+            <a href="checkout.jsp" class="btn btn-primary">Purchase</a>
           </div>
         </div>
     </xsl:template>

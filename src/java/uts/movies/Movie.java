@@ -6,6 +6,8 @@
 package uts.movies;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -22,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Movie implements Serializable{ 
     private String title;  
     private String genre; 
-    private Date date;  
+    private String date;  
     private double price; 
     private int copies;
     private String status;
@@ -31,7 +33,7 @@ public class Movie implements Serializable{
         super();
     }
         
-    public Movie(String title, String genre, Date date, double price, int copies, String status) {
+    public Movie(String title, String genre, String date, double price, int copies, String status) {
         super();
         this.title = title;
         this.genre = genre;
@@ -41,7 +43,7 @@ public class Movie implements Serializable{
         this.status = status;
     }
     
-    public void updateDetails(String title, String genre, Date date, double price, int copies, String status){
+    public void updateDetails(String title, String genre, String date, double price, int copies, String status){
         this.title = title;
         this.genre = genre;
         this.date = date;
@@ -52,9 +54,8 @@ public class Movie implements Serializable{
     
     
     
-    public boolean matchAll(String title, String genre, Date date ){
-        return matchTitle(title) && matchGenre(genre) && matchDate(date);
-        
+    public boolean matchAll(String title, String genre, String date1, String date2 ) throws ParseException{
+        return matchTitle(title) && matchGenre(genre) && matchDate(date1, date2);
     }
     
     boolean matchTitle(String title) {
@@ -65,9 +66,15 @@ public class Movie implements Serializable{
         return this.genre.equalsIgnoreCase(genre.toLowerCase().trim());
     }
 
-    boolean matchDate(Date date) {
-       // Match  ranges of date 
-       return true;
+    boolean matchDate(String date1, String date2) throws ParseException {
+       SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");  
+       Date mydate = formatter1.parse(date1);  
+       Date yourdate = formatter1.parse(date2);  
+       Date hisdate = formatter1.parse(this.date);
+       
+       System.out.print(" " + hisdate );
+      
+       return hisdate.after(mydate) && hisdate.before(yourdate);
     }
 
     public String getStatus() {
@@ -94,11 +101,11 @@ public class Movie implements Serializable{
         this.genre = genre;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

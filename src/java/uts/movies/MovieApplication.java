@@ -67,7 +67,7 @@ public class MovieApplication implements Serializable{
         fout.close();
     }
     
-    public void editBook(Movie movie,String title, String genre, int copies, Date date, double price, String status) throws Exception{
+    public void editBook(Movie movie,String title, String genre, int copies, String date, double price, String status) throws Exception{
         movies.remove(movie);
         movie.updateDetails(title, genre, date, price,copies,status);
         movies.addMovie(movie);

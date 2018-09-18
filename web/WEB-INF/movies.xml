@@ -4,7 +4,7 @@
     <movie>
         <title>Avengers</title>
         <genre>Superheroes</genre>
-        <date>Sat Sep 08 22:18:20 AEST 2018</date>
+        <date>2018-09-08</date>
         <price>29.99</price>
         <copies>57</copies>
         <status>available</status>
@@ -12,7 +12,7 @@
     <movie>
         <title>Whatever</title>
         <genre>whatever</genre>
-        <date>Sat Sep 08 22:18:20 AEST 2018</date>
+        <date>2018-09-08</date>
         <price>29.99</price>
         <copies>57</copies>
         <status>available</status>
@@ -20,7 +20,7 @@
     <movie>
         <title>Avengers 2</title>
         <genre>Superheroes</genre>
-        <date>Sat Sep 08 22:18:20 AEST 2018</date>
+        <date>2018-09-08</date>
         <price>29.99</price>
         <copies>57</copies>
         <status>available</status>
