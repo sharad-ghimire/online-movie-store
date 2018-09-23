@@ -26,6 +26,7 @@
             </li>
             
             <li class="nav-item"><a class="nav-link" href="editUser.jsp"><%= loggedUser.getName()%></a></li>
+            <%session.setAttribute("userEdit", loggedUser); %>
             
             <% } else if (registeredUser != null) {%>
             <li class="nav-item">
@@ -37,6 +38,7 @@
             </li>
             
             <li class="nav-item"><a class="nav-link" href="editUser.jsp"><%= registeredUser.getName()%></a></li>
+                <%session.setAttribute("userEdit", registeredUser); %>
             
             <%} else { %>
             <li class="nav-item">

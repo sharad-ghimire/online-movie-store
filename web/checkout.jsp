@@ -1,5 +1,8 @@
 <%@include file="header.jsp" %>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Welcome to the Checkout Page.</h1>
+        <%
+        
+        %>
     </body>
 </html>

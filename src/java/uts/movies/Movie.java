@@ -59,7 +59,7 @@ public class Movie implements Serializable{
     }
     
     boolean matchTitle(String title) {
-        return this.title.equals(title.toLowerCase().trim());
+        return this.title.equalsIgnoreCase(title.toLowerCase().trim());
     }
 
     boolean matchGenre(String genre) {

@@ -8,8 +8,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "user")
-public class User  implements Serializable {
-    @XmlElement(name = "email")    
+public class User implements Serializable {
+
+    @XmlElement(name = "email")
     private String email;
     @XmlElement(name = "name")
     private String name;
@@ -17,8 +18,8 @@ public class User  implements Serializable {
     private String password;
     @XmlElement(name = "gender")
     private String gender;
-    
-    public User(){
+
+    public User() {
         super();
     }
 
@@ -28,6 +29,12 @@ public class User  implements Serializable {
         this.password = password;
         this.name = name;
         this.gender = gender;
+    }
+
+    public void updateDetails(String email, String name, String password) {
+        this.email=email;
+        this.name=name;
+        this.password=password;
     }
 
     public String getEmail() {
@@ -61,8 +68,5 @@ public class User  implements Serializable {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    
-    
-    
-    
+
 }

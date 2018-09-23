@@ -3,6 +3,7 @@
 <%@include file="header.jsp" %>
 <%@include file="navbar.jsp" %>
 
+
 <!--<div class="jumbotron text-center">
         <h1 class="display-4">Welcome to Online Movie Store</h1>
         <p class="lead">This is the simple place where you can get all the superhit movies and series.</p>

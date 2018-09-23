@@ -9,27 +9,27 @@
     <jsp:setProperty name="moviesApp" property="filePath" value="<%=filePath%>"/>
 </jsp:useBean>
 <%Movies movies = moviesApp.getMovies();%>
-<% 
+<%
     String genre = request.getParameter("genre");
     String title = request.getParameter("title");
     String fromDate = request.getParameter("fromDate");
     String toDate = request.getParameter("toDate");
-    
+
     ArrayList<Movie> movieList = new ArrayList();
-    
-    if(genre != null && !genre.equals("")){
+
+    if (genre != null && !genre.equals("")) {
         movieList = movies.getMatchesForGenre(genre);
-        if(movieList == null) {
+        if (movieList == null) {
             response.sendRedirect("404.jsp");
         }
-    } else if (title != null && !title.equals("")){
-        movieList = movies.getMatchesForTitle(title); 
-        if(movieList == null) { 
+    } else if (title != null && !title.equals("")) {
+        movieList = movies.getMatchesForTitle(title);
+        if (movieList == null) {
             response.sendRedirect("404.jsp");
         }
-    } else if(fromDate != null && !fromDate.equals("") || toDate != null && !toDate.equals("")){
+    } else if (fromDate != null && !fromDate.equals("") || toDate != null && !toDate.equals("")) {
         movieList = movies.getMatchesForDate(fromDate, toDate);
-        if(movieList == null) {
+        if (movieList == null) {
             response.sendRedirect("404.jsp");
         }
     } else {
@@ -38,27 +38,35 @@
 %>
 <c:set var = "xmltext"> 
     <movies>
-    <%  for (Movie movie: movieList) {   %>
-      <movie>
-        <title> <%= movie.getTitle()%> </title>
-        <genre> <%= movie.getGenre()%> </genre>
-        <date> <%= movie.getDate()%> </date>
-        <price> <%= movie.getPrice()%> </price>
-        <copies><%= movie.getCopies()%></copies>
-        <status><%= movie.getStatus()%></status>
-      </movie>
-    <%}%>
-  </movies>
+        <%  for (Movie movie : movieList) {%>
+        <movie>
+            <title> <%= movie.getTitle()%> </title>
+            <genre> <%= movie.getGenre()%> </genre>
+            <date> <%= movie.getDate()%> </date>
+            <price> <%= movie.getPrice()%> </price>
+            <copies><%= movie.getCopies()%></copies>
+            <status><%= movie.getStatus()%></status>
+
+
+            <!--        User user = new User(email, name, password, gender);
+                    session.setAttribute("registeredUser", user);-->
+        </movie>
+        <%}%>
+    </movies>
 </c:set>
-<%--<c:import url = "file:\\Users\\pramishluitel\\Desktop\\UTS \\Fifth Semester\\Web Services Development\\Assignment Files\\online-movie-store\\web\\WEB-INF\\movies.xsl" var = "xslt"/>--%>
-<c:import url = "file:\\C:\\Home\\JSP-projects\\movie-store\\web\\WEB-INF\\movies.xsl" var = "xslt"/>
+
+
+
+
+<c:import url = "WEB-INF/movies.xsl" var = "xslt"/>
+
 <%@include file="header.jsp" %>
 <%@include file="navbar.jsp" %>
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Search</li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Search</li>
+    </ol>
 </nav>
 <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
 <%@include file="footer.jsp" %>

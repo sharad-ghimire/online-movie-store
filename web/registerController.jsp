@@ -18,7 +18,6 @@
         User user = new User(email, name, password, gender);
         session.setAttribute("registeredUser", user);
         users.addUser(user);
-
         userApp.saveUsers(users, filePath);
         userApp.updateXML();
         response.sendRedirect("index.jsp");  
