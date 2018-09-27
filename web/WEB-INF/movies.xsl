@@ -20,10 +20,12 @@
         <div class="card">
             <div class="card-header"></div>
           <div class="card-body">
+              <!--<img src="img/{title}.jpg"></img>-->
             <h5 class="card-title"><xsl:value-of select="title"/></h5>
             <p class="card-text"> Price: $<xsl:value-of select="price"/></p>
+            <p class="card-text"> ID <xsl:value-of select="id"/></p>
             <p class="card-text"> Available Copies: $<xsl:value-of select="copies"/></p>
-            <a href="checkout.jsp" class="btn btn-primary">Purchase</a>
+            <a href="checkout.jsp?id={id}" class="btn btn-primary">Purchase</a>
           </div>
         </div>
     </xsl:template>

@@ -17,19 +17,21 @@
 
     ArrayList<Movie> movieList = new ArrayList();
 
-    if (genre != null && !genre.equals("")) {
+    if (!genre.isEmpty()) {
         movieList = movies.getMatchesForGenre(genre);
-        if (movieList == null) {
+        System.out.print(movieList);
+        if (movieList.isEmpty()) {
+            System.out.print(movieList);
             response.sendRedirect("404.jsp");
         }
-    } else if (title != null && !title.equals("")) {
+     }  else if (!title.isEmpty()) {
         movieList = movies.getMatchesForTitle(title);
-        if (movieList == null) {
+        if (movieList.isEmpty()) {
             response.sendRedirect("404.jsp");
         }
-    } else if (fromDate != null && !fromDate.equals("") || toDate != null && !toDate.equals("")) {
+    } else if (!fromDate.isEmpty() || !toDate.isEmpty()) {
         movieList = movies.getMatchesForDate(fromDate, toDate);
-        if (movieList == null) {
+        if (movieList.isEmpty()) {
             response.sendRedirect("404.jsp");
         }
     } else {
@@ -40,24 +42,17 @@
     <movies>
         <%  for (Movie movie : movieList) {%>
         <movie>
+            <id><%= movie.getId()%></id>
             <title> <%= movie.getTitle()%> </title>
             <genre> <%= movie.getGenre()%> </genre>
             <date> <%= movie.getDate()%> </date>
             <price> <%= movie.getPrice()%> </price>
             <copies><%= movie.getCopies()%></copies>
             <status><%= movie.getStatus()%></status>
-
-
-            <!--        User user = new User(email, name, password, gender);
-                    session.setAttribute("registeredUser", user);-->
         </movie>
         <%}%>
     </movies>
 </c:set>
-
-
-
-
 <c:import url = "WEB-INF/movies.xsl" var = "xslt"/>
 
 <%@include file="header.jsp" %>

@@ -12,10 +12,6 @@
         <a class="btn btn-primary btn-lg" href="login.jsp" role="button">Login </a>
         <a class="btn btn-primary btn-lg" href="register.jsp" role="button">Register </a>
 </div>-->
-
-
-
-
 <div class="container text-center">
     <div class="row mt-3">
         <div class="col-lg-12">
@@ -54,15 +50,4 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 <%@include file="footer.jsp" %>

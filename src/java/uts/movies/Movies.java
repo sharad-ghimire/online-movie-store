@@ -65,5 +65,22 @@ public class Movies implements Serializable{
             if(movie.matchDate(date1, date2))
                 matches.add(movie);
         return matches;
-    }    
+    }   
+    
+    /**
+     *
+     * @param nameOfMovie
+     * @return
+     */
+    public Movie idChecker(String idOfMovie) {
+        for (Movie movie : listOfMovies) {
+            int id = Integer.parseInt(idOfMovie);
+            if(movie.getId() == id){
+                return movie;
+            }
+        }
+        
+        return null; 
+    }
+        
 }

@@ -2,27 +2,33 @@
 <?xml-stylesheet type="text/xsl" href="movies.xsl"?>  
 <movies>
     <movie>
+        <id>1</id>
         <title>Avengers</title>
         <genre>Superheroes</genre>
         <date>2018-09-08</date>
         <price>29.99</price>
         <copies>57</copies>
         <status>available</status>
+        <img>Avengers.jpg</img>
     </movie>
     <movie>
+        <id>2</id>
         <title>Whatever</title>
-        <genre>whatever</genre>
+        <genre>Whatever</genre>
         <date>2018-09-08</date>
         <price>29.99</price>
         <copies>57</copies>
         <status>available</status>
+        <img>Avengers.jpg</img>
     </movie>
     <movie>
+        <id>3</id>
         <title>Avengers 2</title>
         <genre>Superheroes</genre>
         <date>2018-09-08</date>
         <price>29.99</price>
         <copies>57</copies>
         <status>available</status>
+       <img>Avengers2.jpg</img>
     </movie>
 </movies>

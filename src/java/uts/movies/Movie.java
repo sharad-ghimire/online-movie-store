@@ -22,35 +22,50 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "movie")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movie implements Serializable{ 
+    private int id; 
     private String title;  
     private String genre; 
     private String date;  
     private double price; 
     private int copies;
     private String status;
+    private String img;
 
     public Movie() {
         super();
     }
         
-    public Movie(String title, String genre, String date, double price, int copies, String status) {
+    public Movie(int id, String title, String genre, String date, double price, int copies, String status, String img) {
         super();
+        this.id = id;
         this.title = title;
         this.genre = genre;
         this.date = date;
         this.price = price;
         this.copies = copies;
         this.status = status;
+        this.img = img;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
     
-    public void updateDetails(String title, String genre, String date, double price, int copies, String status){
+    public void updateDetails(int id, String title, String genre, String date, double price, int copies, String status, String img){
+        this.id = id;
         this.title = title;
         this.genre = genre;
         this.date = date;
         this.price = price;
         this.copies = copies;
         this.status = status;
+        this.img = img;
     }
+    
     
     
     
@@ -76,6 +91,13 @@ public class Movie implements Serializable{
       
        return hisdate.after(mydate) && hisdate.before(yourdate);
     }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }   
 
     public String getStatus() {
         return status;
