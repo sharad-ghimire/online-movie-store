@@ -13,7 +13,9 @@
                         </div>
                         <div class="card-body">
                           <h3 class="card-title">Register</h3>
-                          <span class="text-danger"><% if(error != null){ out.print(error);  } %></span>
+                          <% if(error != null){ %>
+                <div class="alert alert-danger"><%out.print(error);%> </div>
+                   <%  } %>
                           <form action="registerController.jsp" method="POST">
                               <div class="form-group">
                                 <label for="email">Email address</label>

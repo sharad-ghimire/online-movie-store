@@ -10,81 +10,52 @@
 <%Movies movies = moviesApp.getMovies();
     String idOfMovie = (String) request.getParameter("id");
     
-    Movie movie = movies.idChecker(idOfMovie);
+    Movie movie = movies.idChecker(idOfMovie);   
     
+    ArrayList<Movie> cartMovies = (ArrayList<Movie>) session.getAttribute("cartMovies");
+   
+    if(cartMovies == null){
+        ArrayList<Movie> cart = new ArrayList<Movie>();
+        cart.add(movie);
+        session.setAttribute("cartMovies", cart);
+        cartMovies = cart;
+    } else {
+        cartMovies.add(movie);
+    }
     
-    session.setAttribute("cartMovies", movie);
-    ArrayList<Movie> cartMovies = (ArrayList<Movie>)session.getAttribute("cartMovies");
-    
-    cartMovies.add(movie);
-    
-//    session.setAttribute("cartMovies", cartMovies);//sets session value to ArrayList
-  %>
+System.out.print(cartMovies);  %>
     <body>
         <div class="container">
-            
-        
-        <a class="btn btn-success text-white mt-5">Proceed to checkout</a>
-        
+            <a class="btn btn-success text-white mt-5" href="login.jsp?error=Please Log in to continue">Proceed to checkout</a>
        <div class="row mt-3">
         <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
-                Your Shooping Cart.
+                Your Shopping Cart.
               </div>
               <div class="card-body">              
                     <div class="row">
-                        <div class="col-lg-4">
-                            Your Movie Name
-                            
-                        </div>
-                        <div class="col-lg-2">
-                            Item Price
-                        </div>
-                        <div class="col-lg-2">
-                            Quantity
-                        </div>
-                        <div class="col-lg-2">
-                            Total Price
-                        </div>
-                         <div class="col-lg-2">
-                             
-                        </div>
-                        
+                        <div class="col-lg-6"><h4>Your Movie Name</h4></div>
+                        <div class="col-lg-3"><h4>Item Price</h4></div>
+                         <div class="col-lg-3"></div> 
                     </div>
                 
-                <div class="row mt-3">
-                    <% for (Movie movie1 : cartMovies) { %>
-                    
-                       <div class="col-lg-4 mt-3">
-                            <h6> <%=movie.getTitle() %></h6>
-                            
-                        </div>
-                        <div class="col-lg-2 mt-3">
-                            <%=movie.getPrice() %>
-                        </div>
-                        <div class="col-lg-2 mt-3">
-                            <select>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>                               
-                            </select>
-                        </div>
-                        <div class="col-lg-2 mt-3">
-                        </div>
-                         <div class="col-lg-2 mt-3">
-                             <button class="btn btn-danger">Remove</button>
-                           
-                        </div>
-                      <hr>	 
-		<%}%>     
+                
+                <% for (Movie movie1 : cartMovies) { %>
+                    <div class="row">
+                       <div class="col-lg-6 mt-3"><h6> <%=movie1.getTitle() %></h6></div>
+                       <div class="col-lg-3 mt-3"><%=movie1.getPrice() %></div>
+                       <div class="col-lg-3 mt-3"><a class="btn btn-danger" href="deleteMovie.jsp?movieId=<%=movie1.getId()%>">Remove</a></div> 
                     </div>
-               
-              </div>
-            </div>   
+                    <hr>           
+		<%}%>
+
+            </div> 
+            <div class="card-footer">Estimated total: <%=20%></div>
+            </div>
+            
                 <a href="index.jsp" class="btn btn-success text-white mt-3">Continue Shopping</a>
-        </div>
-      
+                <div class="row">
      </div>
     </body>
     <%@include file="script.jsp" %>

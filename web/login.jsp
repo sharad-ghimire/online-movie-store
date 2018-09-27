@@ -7,18 +7,27 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="header.jsp" %>
 <%@include file="navbar.jsp" %>
-<% String error = (String) request.getParameter("error"); %>
+<% String error = (String) request.getParameter("error");
+    User user = (User) session.getAttribute("loggedUser");
+    User anotherUser = (User) session.getAttribute("registeredUser");
+    
+//    if(!(user == null && anotherUser == null)){
+//        response.sendRedirect("profile.jsp?success=Logged in Sucessfull");
+//    }
+%>
 <div class="container">
     
     <div class="row mt-3">
         <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
-                Login and Enjoy the superhit movies
+                Login and Enjoy the movies
               </div>
               <div class="card-body">
                 <h3 class="card-title">Log In</h3>
-                <span class="text-danger"><% if(error != null){ out.print(error);  } %></span>
+                <% if(error != null){ %>
+                <div class="alert alert-danger"><%out.print(error);%> </div>
+                   <%  } %>
                 <form action="loginController.jsp" method="POST">
                     <div class="form-group">
                       <label for="email">Email address</label>

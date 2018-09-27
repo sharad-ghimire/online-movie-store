@@ -19,9 +19,9 @@
 
     if (!genre.isEmpty()) {
         movieList = movies.getMatchesForGenre(genre);
-        System.out.print(movieList);
+       
         if (movieList.isEmpty()) {
-            System.out.print(movieList);
+            
             response.sendRedirect("404.jsp");
         }
      }  else if (!title.isEmpty()) {

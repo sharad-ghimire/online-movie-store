@@ -16,7 +16,7 @@
         <title>Whatever</title>
         <genre>Whatever</genre>
         <date>2018-09-08</date>
-        <price>29.99</price>
+        <price>2.99</price>
         <copies>57</copies>
         <status>available</status>
         <img>Avengers.jpg</img>
@@ -26,7 +26,7 @@
         <title>Avengers 2</title>
         <genre>Superheroes</genre>
         <date>2018-09-08</date>
-        <price>29.99</price>
+        <price>19.99</price>
         <copies>57</copies>
         <status>available</status>
        <img>Avengers2.jpg</img>

@@ -25,8 +25,8 @@
               <a class="nav-link" href="logoutController.jsp">Logout</a>
             </li>
             
-            <li class="nav-item"><a class="nav-link" href="editUser.jsp"><%= loggedUser.getName()%></a></li>
-            <%session.setAttribute("userEdit", loggedUser); %>
+            <li class="nav-item"><a class="nav-link" href="profile.jsp"><%= loggedUser.getName()%></a></li>
+            
             
             <% } else if (registeredUser != null) {%>
             <li class="nav-item">
@@ -37,8 +37,8 @@
               <a class="nav-link" href="logoutController.jsp">Logout</a>
             </li>
             
-            <li class="nav-item"><a class="nav-link" href="editUser.jsp"><%= registeredUser.getName()%></a></li>
-                <%session.setAttribute("userEdit", registeredUser); %>
+            <li class="nav-item"><a class="nav-link" href="profile.jsp"><%= registeredUser.getName()%></a></li>
+                
             
             <%} else { %>
             <li class="nav-item">

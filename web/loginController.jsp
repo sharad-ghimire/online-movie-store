@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="uts.movies.Movie"%>
 <%@page import="uts.users.*"%>
 <% 
     String filePath = application.getRealPath("WEB-INF/users.xml");
@@ -13,12 +15,11 @@
     String email = request.getParameter("email");
     String password = request.getParameter("password");
  
-    User user = users.login(email, password);
-        
+    User user = users.login(email, password);    
     
     if(user != null){
         session.setAttribute("loggedUser", user);
-        response.sendRedirect("index.jsp"); 
+        response.sendRedirect("profile.jsp?success=You are now logged in!");
     } else {
         response.sendRedirect("login.jsp?error=Incorrect Email or Password");
     } 

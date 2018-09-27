@@ -74,10 +74,11 @@ public class Movies implements Serializable{
      */
     public Movie idChecker(String idOfMovie) {
         for (Movie movie : listOfMovies) {
-            int id = Integer.parseInt(idOfMovie);
-            if(movie.getId() == id){
-                return movie;
-            }
+            
+                int id = Integer.parseInt(idOfMovie);
+                if(movie.getId() == id){
+                    return movie;
+                } 
         }
         
         return null; 

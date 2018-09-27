@@ -16,11 +16,11 @@
     
     if (agreeTOS != null && anotherUser == null) {
         User user = new User(email, name, password, gender);
-        session.setAttribute("registeredUser", user);
+        session.setAttribute("loggedUser", user);
         users.addUser(user);
         userApp.saveUsers(users, filePath);
         userApp.updateXML();
-        response.sendRedirect("index.jsp");  
+        response.sendRedirect("profile.jsp?success=Registration Sucessful");  
     } else if (anotherUser != null) {
         response.sendRedirect("register.jsp?error=This Email Address is already Used");
     } else {
