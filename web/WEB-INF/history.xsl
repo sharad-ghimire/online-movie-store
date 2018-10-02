@@ -24,37 +24,37 @@
         </html>
     </xsl:template>
     
-    <xsl:template match="order">
+    
+    <xsl:template match="Order">
         <div class="card">
             <div class="card-header"></div>
           <div class="card-body">
-            <h5 class="card-title"><xsl:value-of select="orderID"/></h5>
-            <p class="card-text"> User: <xsl:value-of select="user-name"/></p>
-            <p class="card-text"> Email: <xsl:value-of select="user-email"/></p>
-            <p class="card-text"> Payment method: <xsl:value-of select="payment-method"/></p>
-            <p class="card-text"> Total price: $<xsl:value-of select="total-price"/></p>
-            <p class="card-text"> Status: <xsl:value-of select="status"/></p>
+            <h5 class="card-title"><xsl:value-of select="OrderID"/></h5>
+            <p class="card-text"> User: <xsl:value-of select="FullName"/></p>
+            <p class="card-text"> Email: <xsl:value-of select="Email"/></p>
+            <p class="card-text"> Payment method: <xsl:value-of select="PaymentMethod"/></p>
+            <p class="card-text"> Total price: $<xsl:value-of select="TotalPrice"/></p>
+            <p class="card-text"> Status: <xsl:value-of select="OrderStatus"/></p>
             Movies:<xsl:apply-templates/>
           </div>
         </div>
     </xsl:template>
     
-    <xsl:template match="order/orderID|user-name|user-email|payment-method|total-price|status">
+    <xsl:template match="Order/OrderID|FullName|Email|PaymentMethod|TotalPrice|OrderStatus">
         <!--empty tag-->
     </xsl:template>
     
-    <xsl:template match="movie">
+    <xsl:template match="Movie">
          <div class="card">
             <div class="card-header"></div>
           <div class="card-body">
-            <p class="card-text"> Title: <xsl:value-of select="title"/></p>
-            <p class="card-text"> Genre: <xsl:value-of select="genre"/></p>
-            <p class="card-text"> Price: $<xsl:value-of select="price"/></p>
-            <p class="card-text"> Date: <xsl:value-of select="date"/></p>
-            <p class="card-text"> Copies: <xsl:value-of select="copies"/></p>
+            <p class="card-text"> Title: <xsl:value-of select="Title"/></p>
+            <p class="card-text"> Genre: <xsl:value-of select="Genre"/></p>
+            <p class="card-text"> Date: <xsl:value-of select="ReleaseDate"/></p>
+            <p class="card-text"> Price: $<xsl:value-of select="Price"/></p>
+            <p class="card-text"> Copies: <xsl:value-of select="Copies"/></p>
           </div>
         </div>
     </xsl:template>
 
-    <!-- to do: list all the movies in the order -->
 </xsl:stylesheet>

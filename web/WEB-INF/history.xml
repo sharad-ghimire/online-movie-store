@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<history xmlns="http://www.uts.edu.au/31284/wsd-students"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-students history.xsd">
-
-
+<?xml-stylesheet type="text/xsl" href="history.xsl"?>
+<history>
     <Order>
         <OrderID>100</OrderID>
         
-       
-        <Title>Mission</Title>
-        <Genre>Action</Genre>
-        <ReleaseDate>1996</ReleaseDate>
-        <Price>20</Price>
-        <Copies>1</Copies>
+        <Movie>
+            <Title>Mission</Title>
+            <Genre>Action</Genre>
+            <ReleaseDate>1996</ReleaseDate>
+            <Price>20</Price>
+            <Copies>1</Copies>
+        </Movie>
         
-        <ID>1111</ID>
-        <Email>a@b.com</Email>
         <FullName>A B</FullName>
+        <Email>a@b.com</Email>
         <PaymentMethod>Visa</PaymentMethod>
-        <SalesTotal>50</SalesTotal>
+        <TotalPrice>20</TotalPrice>
         <OrderStatus>Cancelled</OrderStatus>
     </Order>
     
     <Order>
         <OrderID>101</OrderID>
         
+        <Movie>
+            <Title>Avengers</Title>
+            <Genre>Sci-Fi</Genre>
+            <ReleaseDate>2012</ReleaseDate>
+            <Price>25</Price>
+            <Copies>1</Copies>
+        </Movie>
         
-        <Title>Avengers</Title>
-        <Genre>Sci-Fi</Genre>
-        <ReleaseDate>2012</ReleaseDate>
-        <Price>25</Price>
-        <Copies>1</Copies>
+        <Movie>
+            <Title>Mission</Title>
+            <Genre>Action</Genre>
+            <ReleaseDate>1996</ReleaseDate>
+            <Price>20</Price>
+            <Copies>2</Copies>
+        </Movie>
         
-        
-        <ID>2133</ID>
-        <Email>c@d.com</Email>
         <FullName>C D</FullName>
-        <PaymentMethod>Card</PaymentMethod>
-        <SalesTotal>100</SalesTotal>
+        <Email>c@d.com</Email>
+        <PaymentMethod>Paypal</PaymentMethod>
+        <TotalPrice>65</TotalPrice>
         <OrderStatus>Submitted</OrderStatus>
     </Order>
 </history>
