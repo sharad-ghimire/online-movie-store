@@ -48,7 +48,7 @@
                 <%
                 History history = historyApp.getHistory();
                 ArrayList<Order> orderList = new ArrayList();
-                orderList = history.getOrders();
+                orderList = history.getOrders(); //has to be changed for history.getMatchesForUser(user.getEmail()) when it's displaying
                 %>
                 
                 <c:set var = "xmltext"> 

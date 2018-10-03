@@ -37,11 +37,11 @@ public class History {
         orders.remove(order);
     }
     
-    public ArrayList<Order> getMatchesForUser(String userName)
+    public ArrayList<Order> getMatchesForUser(String userEmail)
     {
         ArrayList<Order> matches = new ArrayList<>();
         for(Order order:orders)
-            if(order.getFullName().equals(userName))
+            if(order.getEmail().equals(userEmail))
                 matches.add(order);
         return matches;
     }
