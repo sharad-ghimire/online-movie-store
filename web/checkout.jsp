@@ -23,6 +23,9 @@
         cartMovies.add(movie);
     }
     
+    //code to delete the selected movie
+    //saving it to the session again
+    
 System.out.print(cartMovies);  %>
     <body>
         <div class="container">

@@ -4,7 +4,6 @@
     Author     : joanc
 --%>
 
-<%@page import="uts.users.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uts.history.History"%>
 <%@page import="uts.movies.Movie"%>
@@ -18,7 +17,7 @@
                 </jsp:useBean>
                 
                 <%
-                    User user = (User) session.getAttribute("loggedUser");
+                    
                 History history = historyApp.getHistory();
                 //out.println("history: " + history);
                 ArrayList<Order> orderList = new ArrayList();
