@@ -8,18 +8,39 @@
     <jsp:setProperty name="moviesApp" property="filePath" value="<%=filePath%>"/>
 </jsp:useBean>
 <%Movies movies = moviesApp.getMovies();
-    String idOfMovie = (String) request.getParameter("id");
+
+    String idOfMovie = request.getParameter("id");
+    String deleteMovie = request.getParameter("deleteId");
     
-    Movie movie = movies.idChecker(idOfMovie);   
+    Movie movie = movies.idChecker(idOfMovie);
+    Movie movieToDelete = movies.idChecker(deleteMovie);
+    
+    
     
     ArrayList<Movie> cartMovies = (ArrayList<Movie>) session.getAttribute("cartMovies");
    
-    if(cartMovies == null){
+    
+    if(movieToDelete != null)
+    {
+        if(cartMovies.contains(movieToDelete))
+        {
+            cartMovies.remove(movieToDelete);
+            session.setAttribute("cartMovies", cartMovies);
+        }
+        
+    }
+    
+    if((cartMovies == null)){
         ArrayList<Movie> cart = new ArrayList<Movie>();
-        cart.add(movie);
+        //cart.add(movie);
         session.setAttribute("cartMovies", cart);
         cartMovies = cart;
     } else {
+        //cartMovies.add(movie);
+    }
+    
+    if(movie!=null)
+    {
         cartMovies.add(movie);
     }
     
@@ -48,7 +69,7 @@ System.out.print(cartMovies);  %>
                     <div class="row">
                        <div class="col-lg-6 mt-3"><h6> <%=movie1.getTitle() %></h6></div>
                        <div class="col-lg-3 mt-3"><%=movie1.getPrice() %></div>
-                       <div class="col-lg-3 mt-3"><a class="btn btn-danger" href="deleteMovie.jsp?movieId=<%=movie1.getId()%>">Remove</a></div> 
+                       <div class="col-lg-3 mt-3"><a class="btn btn-danger" href="checkout.jsp?deleteId=<%=movie1.getId()%>">Remove</a></div> 
                     </div>
                     <hr>           
 		<%}%>

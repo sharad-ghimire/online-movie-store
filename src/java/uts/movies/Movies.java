@@ -73,9 +73,15 @@ public class Movies implements Serializable{
      * @return
      */
     public Movie idChecker(String idOfMovie) {
+        Integer id = null;
+        try {
+            id = Integer.parseInt(idOfMovie);
+        } catch (Exception e) {
+            return null;
+        }
         for (Movie movie : listOfMovies) {
             
-                int id = Integer.parseInt(idOfMovie);
+                //int id = Integer.parseInt(idOfMovie);
                 if(movie.getId() == id){
                     return movie;
                 } 

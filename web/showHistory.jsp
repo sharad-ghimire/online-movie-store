@@ -17,7 +17,7 @@
                 </jsp:useBean>
                 
                 <%
-                    
+                //we need to get the user here
                 History history = historyApp.getHistory();
                 //out.println("history: " + history);
                 ArrayList<Order> orderList = new ArrayList();
