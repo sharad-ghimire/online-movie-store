@@ -50,7 +50,7 @@
 System.out.print(cartMovies);  %>
     <body>
         <div class="container">
-            <a class="btn btn-success text-white mt-5" href="login.jsp?error=Please Log in to continue">Proceed to checkout</a>
+            <a class="btn btn-success text-white mt-5" href="purchase.jsp">Proceed to checkout</a>
        <div class="row mt-3">
         <div class="col-lg-12">
             <div class="card">

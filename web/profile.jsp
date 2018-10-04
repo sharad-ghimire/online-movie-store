@@ -34,11 +34,16 @@
                 <hr>
                 Gender:  <%= user.getGender()%>                
             </div>
-
-
-
         </div>
+            
+<div class="row mt-3">
+    <div class="col-lg-6 ml-3">
+        <a class="btn btn-primary text-white" href="editUser.jsp">Edit Account</a>
+        <button type="button" class="btn btn-danger">Delete Account</button>
+    </div> 
+</div>
 
+        
     </div>
     <div class="col-lg-6">
         <div class="card mr-3">

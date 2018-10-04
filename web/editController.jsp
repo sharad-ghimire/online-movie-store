@@ -5,4 +5,5 @@
     User user = (User) session.getAttribute("loggedUser");    
     user.updateDetails(request.getParameter("email"), request.getParameter("name"), request.getParameter("password"));
     response.sendRedirect("profile.jsp?success=Details Updated successfully");
+    
 %>
