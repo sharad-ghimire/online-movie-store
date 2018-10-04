@@ -4,6 +4,7 @@
     Author     : joanc
 --%>
 
+<%@page import="uts.users.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uts.history.History"%>
 <%@page import="uts.movies.Movie"%>
@@ -18,33 +19,13 @@
                 
                 <%
                 //we need to get the user here
+                User user = (User) session.getAttribute("loggedUser");
+                
                 History history = historyApp.getHistory();
                 //out.println("history: " + history);
                 ArrayList<Order> orderList = new ArrayList();
-                orderList = history.getOrders(); //has to be changed for history.getMatchesForUser(user.getEmail()) when it's displaying
+                orderList = history.getMatchesForUser(user.getEmail()); //has to be changed for history.getMatchesForUser(user.getEmail()); when it's displaying
                 //out.println("     orders: " + orderList);
-                
-                /*for(Order order:orderList)
-                {
-                    out.println("    order: " + order);
-                    out.println(order.getOrderID());
-                    //out.println(order.getMovies());
-                    for (Movie movie:order.getMovies())
-                    {
-                        out.println(movie.getTitle());
-                        out.println(movie.getGenre());
-                        out.println(movie.getDate() );
-                        out.println(movie.getPrice());
-                        out.println(movie.getCopies());
-                    }
-                    out.println(order.getFullName() );
-                    out.println(order.getEmail() );
-                    out.println(order.getPaymentMethod() );
-                    out.println(order.getTotalPrice());
-                    out.println(order.getOrderStatus());
-                }
-                
-                out.println("COSAS:");*/
                 %>
                 
                 
