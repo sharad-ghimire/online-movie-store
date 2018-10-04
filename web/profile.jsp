@@ -40,48 +40,9 @@
             <div class="card-body"> 
                 
                 <!--If Order histroy exists loop through it and show-->
-                <% String filePath = application.getRealPath("WEB-INF/history.xml");%>
-                <jsp:useBean id="historyApp" class="uts.history.HistoryApplication" scope="application">
-                    <jsp:setProperty name="historyApp" property="filePath" value="<%=filePath%>"/>
-                </jsp:useBean>
-                
-                <%
-                History history = historyApp.getHistory();
-                ArrayList<Order> orderList = new ArrayList();
-                orderList = history.getOrders(); //has to be changed for history.getMatchesForUser(user.getEmail()) when it's displaying
-                %>
-                
-                <c:set var = "xmltext"> 
-                    <history>
-                        <%  for (Order order : orderList) {%>
-                        <Order>
-                            <OrderID><%= order.getOrderID()%></OrderID>
-                            <% for (Movie movie : order.getMovies()){ %>
-                            <Movie>
-                                <Title><%= movie.getTitle() %></Title>
-                                <Genre><%= movie.getGenre() %></Genre>
-                                <ReleaseDate><%= movie.getDate() %></ReleaseDate>
-                                <Price><%= movie.getPrice() %></Price>
-                                <Copies><%= movie.getCopies() %></Copies>
-                            </Movie>
-                            
-                            <% } %>
-                            <FullName><%= order.getFullName()%></FullName>
-                            <Email><%= order.getEmail()%></Email>
-                            <PaymentMethod><%= order.getPaymentMethod()%></PaymentMethod>
-                            <TotalPrice><%= order.getTotalPrice()%></TotalPrice>
-                            <OrderStatus><%= order.getOrderStatus()%></OrderStatus>
-                            
-                            
-                        </Order>
-                        <%}%>
-                    </history>
-                </c:set>
-                <c:import url = "WEB-INF/history.xsl" var = "xslt"/>
+                <%@include file="showHistory.jsp" %>
 
-                <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
                 
-            
             </div>
         </div>
         

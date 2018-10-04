@@ -5,19 +5,25 @@
  */
 package uts.history;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 import uts.movies.Movie;
+import uts.movies.Movies;
 
 /**
  *
  * @author joanc
  */
-public class HistoryApplication {
+public class HistoryApplication implements Serializable{
+    
     private String filePath;
     private History history;
 
@@ -25,6 +31,7 @@ public class HistoryApplication {
     }
 
     public HistoryApplication(String filePath, History history) {
+        super();
         this.filePath = filePath;
         this.history = history;
     }
@@ -33,8 +40,13 @@ public class HistoryApplication {
         return filePath;
     }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
+    public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {
+        JAXBContext jc = JAXBContext.newInstance(History.class);
+        Unmarshaller u = jc.createUnmarshaller();
+        this.filePath = filePath;        
+        FileInputStream fin = new FileInputStream(filePath);
+        history = (History) u.unmarshal(fin); 	
+        fin.close();
     }
 
     public History getHistory() {

@@ -44,7 +44,7 @@
         <!--empty tag-->
     </xsl:template>
     
-    <xsl:template match="Movie">
+    <xsl:template match="movie">
          <div class="card">
             <div class="card-header"></div>
           <div class="card-body">

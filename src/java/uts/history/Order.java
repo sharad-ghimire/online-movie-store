@@ -5,21 +5,35 @@
  */
 package uts.history;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import uts.movies.Movie;
 
 /**
  *
  * @author joanc
  */
-public class Order {
+@XmlRootElement(name = "Order")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Order  implements Serializable{
 
+    @XmlElement(name = "OrderID")
     private int orderID;
+    @XmlElement(name = "movie")
     private ArrayList<Movie> movies;
+    @XmlElement(name = "FullName")
     private String fullName;
+    @XmlElement(name = "Email")
     private String email;
+    @XmlElement(name = "PaymentMethod")
     private String paymentMethod;
+    @XmlElement(name = "TotalPrice")
     private int totalPrice;
+    @XmlElement(name = "OrderStatus")
     private String orderStatus;
 
     public Order() {

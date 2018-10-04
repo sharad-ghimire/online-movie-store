@@ -22,11 +22,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "movie")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movie implements Serializable{ 
+    
     private int id; 
+    //@XmlElement(name = "Title")
     private String title;  
+    //@XmlElement(name = "Genre")
     private String genre; 
+    //@XmlElement(name = "ReleaseDate")
     private String date;  
+    //@XmlElement(name = "Price")
     private double price; 
+    //@XmlElement(name = "Copies")
     private int copies;
     private String status;
     private String img;

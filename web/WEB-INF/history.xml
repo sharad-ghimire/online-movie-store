@@ -4,13 +4,13 @@
     <Order>
         <OrderID>100</OrderID>
         
-        <Movie>
+        <movie>
             <Title>Mission</Title>
             <Genre>Action</Genre>
             <ReleaseDate>1996</ReleaseDate>
             <Price>20</Price>
             <Copies>1</Copies>
-        </Movie>
+        </movie>
         
         <FullName>A B</FullName>
         <Email>a@b.com</Email>
@@ -22,21 +22,21 @@
     <Order>
         <OrderID>101</OrderID>
         
-        <Movie>
+        <movie>
             <Title>Avengers</Title>
             <Genre>Sci-Fi</Genre>
             <ReleaseDate>2012</ReleaseDate>
             <Price>25</Price>
             <Copies>1</Copies>
-        </Movie>
+        </movie>
         
-        <Movie>
+        <movie>
             <Title>Mission</Title>
             <Genre>Action</Genre>
             <ReleaseDate>1996</ReleaseDate>
             <Price>20</Price>
             <Copies>2</Copies>
-        </Movie>
+        </movie>
         
         <FullName>C D</FullName>
         <Email>c@d.com</Email>
