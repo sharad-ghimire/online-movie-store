@@ -28,6 +28,7 @@ public class HistoryApplication implements Serializable{
     private History history;
 
     public HistoryApplication() {
+        
     }
 
     public HistoryApplication(String filePath, History history) {
@@ -77,9 +78,9 @@ public class HistoryApplication implements Serializable{
         fout.close();
     }
     
-    public void editOrder(Order order,int orderID, ArrayList<Movie> movies, String fullName, String email, String paymentMethod, int totalPrice, String orderStatus) throws Exception{
+    public void editOrder(Order order,int orderId, ArrayList<Movie> movies, String orderDate,String name, String email, String paymentMethod, int totalPrice, String orderStatus) throws Exception{
         history.remove(order);
-        order.updateDetails(orderID, movies, fullName, email, paymentMethod, totalPrice, orderStatus);
+        order.updateDetails(orderId,orderDate,movies,name, email, paymentMethod, totalPrice, orderStatus);
         history.addOrder(order);
         updateXML(history,filePath);
     }

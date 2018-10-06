@@ -1,47 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="history.xsl"?>
 <history>
-    <Order>
-        <OrderID>100</OrderID>
-        
+    <order>
+        <orderId>100</orderId>
+        <orderDate>2018-01-23</orderDate>
         <movie>
-            <Title>Mission</Title>
-            <Genre>Action</Genre>
-            <ReleaseDate>1996</ReleaseDate>
-            <Price>20</Price>
-            <Copies>1</Copies>
+            <id>1</id>
+            <title>Avengers</title>
+            <genre>Superheroes</genre>
+            <date>2018-09-08</date>
+            <price>29.99</price>
+            <copies>57</copies>
+            <status>available</status>
+            <img>Avengers.jpg</img>
+            <details>Marvel's The Avengers(classified under the name Marvel Avengers Assemble in the United Kingdom and Ireland), or simply The Avengers, is a 2012 American superhero film based on the Marvel Comics superhero team of the same name, produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures.</details>
         </movie>
-        
-        <FullName>A B</FullName>
-        <Email>a@b.com</Email>
-        <PaymentMethod>Visa</PaymentMethod>
-        <TotalPrice>20</TotalPrice>
-        <OrderStatus>Cancelled</OrderStatus>
-    </Order>
+        <name>A B</name>
+        <email>a@b.com</email>
+        <paymentMethod>Visa</paymentMethod>
+        <totalPrice>20</totalPrice>
+        <orderStatus>Cancelled</orderStatus>
+    </order>
     
-    <Order>
-        <OrderID>101</OrderID>
-        
+    <order>
+        <orderId>101</orderId>
+        <orderDate>2018-01-23</orderDate>
         <movie>
-            <Title>Avengers</Title>
-            <Genre>Sci-Fi</Genre>
-            <ReleaseDate>2012</ReleaseDate>
-            <Price>25</Price>
-            <Copies>1</Copies>
+            <id>2</id>
+            <title>Whatever</title>
+            <genre>Whatever</genre>
+            <date>2018-09-08</date>
+            <price>2.99</price>
+            <copies>57</copies>
+            <status>available</status>
+            <img>Avengers.jpg</img>
+            <details>Whatever is whatever whatever.Whatever is whatever whatever.Whatever is whatever whatever.</details>
+    
+        </movie>
+        <movie>
+            <id>3</id>
+            <title>Avengers 2</title>
+            <genre>Superheroes</genre>
+            <date>2018-09-08</date>
+            <price>19.99</price>
+            <copies>57</copies>
+            <status>available</status>
+            <img>Avengers2.jpg</img>
+            <details>When Tony Stark (Robert Downey Jr.) jump-starts a dormant peacekeeping program, things go terribly awry, forcing him, Thor (Chris Hemsworth), the Incredible Hulk (Mark Ruffalo) and the rest of the Avengers to reassemble. As the fate of Earth hangs in the balance, the team is put to the ultimate test as they battle Ultron, a technological terror hell-bent on human extinction. Along the way, they encounter two mysterious and powerful newcomers, Pietro and Wanda Maximoff.</details>
+    
         </movie>
         
+        <name>C D</name>
+        <email>c@d.com</email>
+        <paymentMethod>Paypal</paymentMethod>
+        <totalPrice>65</totalPrice>
+        <orderStatus>Submitted</orderStatus>
+    </order>
+    <order>
+        <orderId>102</orderId>
+        <orderDate>2018-01-23</orderDate>
         <movie>
-            <Title>Mission</Title>
-            <Genre>Action</Genre>
-            <ReleaseDate>1996</ReleaseDate>
-            <Price>20</Price>
-            <Copies>2</Copies>
+            <id>2</id>
+            <title>Whatever</title>
+            <genre>Whatever</genre>
+            <date>2018-09-08</date>
+            <price>2.99</price>
+            <copies>57</copies>
+            <status>available</status>
+            <img>Avengers.jpg</img>
+            <details>Marvel's The Avengers(classified under the name Marvel Avengers Assemble in the United Kingdom and Ireland), or simply The Avengers, is a 2012 American superhero film based on the Marvel Comics superhero team of the same name, produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures.</details>
+    
         </movie>
         
-        <FullName>C D</FullName>
-        <Email>c@d.com</Email>
-        <PaymentMethod>Paypal</PaymentMethod>
-        <TotalPrice>65</TotalPrice>
-        <OrderStatus>Submitted</OrderStatus>
-    </Order>
+        <name>C D</name>
+        <email>c@d.com</email>
+        <paymentMethod>Paypal</paymentMethod>
+        <totalPrice>65</totalPrice>
+        <orderStatus>Submitted</orderStatus>
+    </order>
 </history>

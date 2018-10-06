@@ -29,7 +29,6 @@ public class Movies implements Serializable{
         return listOfMovies;
     }
    
-    
     public void addMovie(Movie movie){
         listOfMovies.add(movie);
     }
@@ -67,22 +66,9 @@ public class Movies implements Serializable{
         return matches;
     }   
     
-    /**
-     *
-     * @param nameOfMovie
-     * @return
-     */
     public Movie idChecker(String idOfMovie) {
-        Integer id = null;
-        try {
-            id = Integer.parseInt(idOfMovie);
-        } catch (Exception e) {
-            return null;
-        }
         for (Movie movie : listOfMovies) {
-            
-                //int id = Integer.parseInt(idOfMovie);
-                if(movie.getId() == id){
+                if(movie.getId().equalsIgnoreCase(idOfMovie)){
                     return movie;
                 } 
         }

@@ -11,7 +11,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -23,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movie implements Serializable{ 
     
-    private int id; 
+    private String id; 
     //@XmlElement(name = "Title")
     private String title;  
     //@XmlElement(name = "Genre")
@@ -36,12 +35,13 @@ public class Movie implements Serializable{
     private int copies;
     private String status;
     private String img;
+    private String details;
 
     public Movie() {
         super();
     }
         
-    public Movie(int id, String title, String genre, String date, double price, int copies, String status, String img) {
+    public Movie(String id, String title, String genre, String date, double price, int copies, String status, String img, String details) {
         super();
         this.id = id;
         this.title = title;
@@ -51,6 +51,7 @@ public class Movie implements Serializable{
         this.copies = copies;
         this.status = status;
         this.img = img;
+        this.details = details;
     }
 
     public String getImg() {
@@ -61,7 +62,7 @@ public class Movie implements Serializable{
         this.img = img;
     }
     
-    public void updateDetails(int id, String title, String genre, String date, double price, int copies, String status, String img){
+    public void updateDetails(String id, String title, String genre, String date, double price, int copies, String status, String img, String details){
         this.id = id;
         this.title = title;
         this.genre = genre;
@@ -70,6 +71,15 @@ public class Movie implements Serializable{
         this.copies = copies;
         this.status = status;
         this.img = img;
+        this.details = details;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
     }
     
     
@@ -97,11 +107,11 @@ public class Movie implements Serializable{
       
        return hisdate.after(mydate) && hisdate.before(yourdate);
     }
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }   
 

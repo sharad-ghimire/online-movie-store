@@ -12,49 +12,50 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import uts.movies.Movie;
-
 /**
  *
  * @author joanc
  */
-@XmlRootElement(name = "Order")
+@XmlRootElement(name = "order")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Order  implements Serializable{
-
-    @XmlElement(name = "OrderID")
-    private int orderID;
-    @XmlElement(name = "movie")
+//    @XmlElement(name = "orderId")
+    private int orderId;
+//    @XmlElement(name = "orderDate")
+    private String orderDate;
+//    @XmlElement(name = "movie")
     private ArrayList<Movie> movies;
-    @XmlElement(name = "FullName")
-    private String fullName;
-    @XmlElement(name = "Email")
+//    @XmlElement(name = "name")
+    private String name;
+//    @XmlElement(name = "email")
     private String email;
-    @XmlElement(name = "PaymentMethod")
+//    @XmlElement(name = "paymentMethod")
     private String paymentMethod;
-    @XmlElement(name = "TotalPrice")
-    private int totalPrice;
-    @XmlElement(name = "OrderStatus")
+//    @XmlElement(name = "totalPrice")
+    private double totalPrice;
+//    @XmlElement(name = "orderStatus")
     private String orderStatus;
 
     public Order() {
     }
     
-    public Order(int orderID, ArrayList<Movie> movies, String fullName, String email, String paymentMethod, int totalPrice, String orderStatus) {
-        this.orderID = orderID;
+    public Order(int orderId, ArrayList<Movie> movies,String orderDate,String name, String email, String paymentMethod, double totalPrice, String orderStatus) {
+        this.orderId = orderId;
         this.movies = movies;
-        this.fullName = fullName;
+        this.orderDate = orderDate;
+        this.name = name;
         this.email = email;
         this.paymentMethod = paymentMethod;
         this.totalPrice = totalPrice;
         this.orderStatus = orderStatus;
     }
 
-    public int getOrderID() {
-        return orderID;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public ArrayList<Movie> getMovies() {
@@ -65,12 +66,12 @@ public class Order  implements Serializable{
         this.movies = movies;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -89,11 +90,11 @@ public class Order  implements Serializable{
         this.paymentMethod = paymentMethod;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -105,12 +106,20 @@ public class Order  implements Serializable{
         this.orderStatus = orderStatus;
     }
     
-    public void updateDetails(int orderID, ArrayList<Movie> movies, String fullName, String email, String paymentMethod, int totalPrice, String orderStatus)
-    {
-        this.orderID = orderID;
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
+    }
+    
+    public void updateDetails(int orderId,String orderDate, ArrayList<Movie> movies, String name, String email, String paymentMethod, double totalPrice, String orderStatus){
+        this.orderId = orderId;
         this.movies = movies;
+        this.orderDate = orderDate;
         this.email = email;
-        this.fullName = fullName;
+        this.name = name;
         this.orderStatus = orderStatus;
         this.paymentMethod = paymentMethod;
         this.totalPrice = totalPrice;

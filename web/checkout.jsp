@@ -14,9 +14,7 @@
     
     Movie movie = movies.idChecker(idOfMovie);
     Movie movieToDelete = movies.idChecker(deleteMovie);
-    
-    
-    
+
     ArrayList<Movie> cartMovies = (ArrayList<Movie>) session.getAttribute("cartMovies");
    
     
@@ -43,6 +41,11 @@
     {
         cartMovies.add(movie);
     }
+    double totalPrice = 0.0;
+
+    for (Movie movie1 : cartMovies) {
+        totalPrice = totalPrice + movie1.getPrice();
+    }
     
     //code to delete the selected movie
     //saving it to the session again
@@ -63,8 +66,6 @@ System.out.print(cartMovies);  %>
                         <div class="col-lg-3"><h4>Item Price</h4></div>
                          <div class="col-lg-3"></div> 
                     </div>
-                
-                
                 <% for (Movie movie1 : cartMovies) { %>
                     <div class="row">
                        <div class="col-lg-6 mt-3"><h6> <%=movie1.getTitle() %></h6></div>
@@ -75,7 +76,7 @@ System.out.print(cartMovies);  %>
 		<%}%>
 
             </div> 
-            <div class="card-footer">Estimated total: <%=20%></div>
+            <div class="card-footer">Estimated total: $<%=totalPrice%></div>
             </div>
             
                 <a href="index.jsp" class="btn btn-success text-white mt-3">Continue Shopping</a>

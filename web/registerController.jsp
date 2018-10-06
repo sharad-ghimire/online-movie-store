@@ -20,6 +20,7 @@
         users.addUser(user);
         userApp.saveUsers(users, filePath);
         userApp.updateXML();
+        session.setAttribute("firstTime", "true");
         response.sendRedirect("profile.jsp?success=Registration Sucessful");  
     } else if (anotherUser != null) {
         response.sendRedirect("register.jsp?error=This Email Address is already Used");

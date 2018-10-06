@@ -11,6 +11,7 @@
 <%
     String success = (String) request.getParameter("success");
 
+    String firstTime = (String) session.getAttribute("firstTime");
     User user = (User) session.getAttribute("loggedUser");
     User anotherUser = (User) session.getAttribute("registeredUser");
 
@@ -22,96 +23,49 @@
 <div class="alert alert-success">
     <%out.print(success);%> 
 </div>
-<%  }%>
-<div class="row mt-3">
-    <div class="col-lg-6">
-        <div class="card ml-3">
-            <div class="card-header">Your Details</div>
-            <div class="card-body">
-                Name: <%= user.getName()%> 
-                <hr>
-                Email Address: <%= user.getEmail()%>
-                <hr>
-                Gender:  <%= user.getGender()%>                
-            </div>
-        </div>
-            
-<div class="row mt-3">
-    <div class="col-lg-6 ml-3">
+<%  }
+%>
+<div class="row mt-3 mb-3">
+    <div class="col-lg-12 text-center ">
         <a class="btn btn-primary text-white" href="editUser.jsp">Edit Account</a>
-        <button type="button" class="btn btn-danger">Delete Account</button>
-    </div> 
+        <a class="btn btn-danger" href="deleteUser.jsp" >Delete Account</a>
+    </div>
 </div>
 
-        
-    </div>
-    <div class="col-lg-6">
-        <div class="card mr-3">
+<div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <div class="card ml-3 mr-3">
             <div class="card-header">Your Purchase History</div>
             <div class="card-body"> 
+                <%if (firstTime == null || firstTime.equals("true")) {%>
+                <div class="text-center">
+                    <p>No Purchase History!<p>
+                    <p>Purchase something by searching from <a href="index.jsp">here<a>.</p>
+                                </div>
+                                <%} else {%>
+                                <!--SHOW HISTORY HERE-->
+                                <div class="container">
+                                    <table class="table  table-bordered table-hover">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th scope="col">Order ID</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Movies</th>
+                                                <th scope="col">Cancel</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                <!--SHOW HISTORY HERE-->
-               
-                <% String filePath = application.getRealPath("WEB-INF/history.xml");%>
+                                            <%@include file="showHistory.jsp" %>
 
-                <jsp:useBean id="historyApp" class="uts.history.HistoryApplication" scope="application">
-                    <jsp:setProperty name="historyApp" property="filePath" value="<%=filePath%>"/>
-                </jsp:useBean>
-                
-                <%
-                //we need to get the user here
-                
-                
-                History history = historyApp.getHistory();
-                //out.println("history: " + history);
-                ArrayList<Order> orderList = new ArrayList();
-                orderList = history.getMatchesForUser(user.getEmail()); //has to be changed for history.getMatchesForUser(user.getEmail()); when it's displaying
-                //out.println("     orders: " + orderList);
-                %>
-                
-                
-                <c:set var = "xmltext"> 
-                    <history>
-                        <%  for (Order order : orderList) {%>
-               
-                        <Order>
-                            <OrderID><%= order.getOrderID()%></OrderID>
-                            <% for (Movie movie : order.getMovies()){ %>
-                            <movie>
-                                <Title><%= movie.getTitle()%></Title>
-                                <Genre><%= movie.getGenre()%></Genre>
-                                <ReleaseDate><%= movie.getDate()%></ReleaseDate>
-                                <Price><%= movie.getPrice()%></Price>
-                                <Copies><%= movie.getCopies()%></Copies>
-                            </movie>
-                            
-                            <%}%>
-                            <FullName><%= order.getFullName()%></FullName>
-                            <Email><%= order.getEmail()%></Email>
-                            <PaymentMethod><%= order.getPaymentMethod()%></PaymentMethod>
-                            <TotalPrice><%= order.getTotalPrice()%></TotalPrice>
-                            <OrderStatus><%= order.getOrderStatus()%></OrderStatus>
-                            
-                            
-                        </Order>
-                        <%}%>
-                    </history>
-                </c:set>
-                <c:import url = "WEB-INF/history.xsl" var = "xslt"/>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <%}%>
+                                </div>
+                                </div>
+                                </div>
+                                <div class="col-lg-1"></div>
+                                </div>
 
-                <x:transform xml = "${xmltext}" xslt = "${xslt}"></x:transform>
-
-
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-<div class="row mt-3">
-    <div class="col-lg-6 ml-3">
-        <a class="btn btn-primary text-white" href="editUser.jsp">Edit Account</a>
-        <button type="button" class="btn btn-danger">Delete Account</button>
-    </div> 
-</div>

@@ -67,9 +67,9 @@ public class MovieApplication implements Serializable{
         fout.close();
     }
     
-    public void editBook(Movie movie,int id, String title, String genre, int copies, String date, double price, String status, String img) throws Exception{
+    public void editBook(Movie movie,String id, String title, String genre, int copies, String date, double price, String status, String img, String details) throws Exception{
         movies.remove(movie);
-        movie.updateDetails(id, title, genre, date, price,copies,status, img);
+        movie.updateDetails(id, title, genre, date, price,copies,status, img, details);
         movies.addMovie(movie);
         updateXML(movies,filePath);
     }
@@ -80,6 +80,5 @@ public class MovieApplication implements Serializable{
 
     public void setMovies(Movies movies) {
         this.movies = movies;
-    }     
-   
+    }  
 }

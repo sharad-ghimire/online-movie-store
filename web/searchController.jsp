@@ -21,7 +21,6 @@
         movieList = movies.getMatchesForGenre(genre);
        
         if (movieList.isEmpty()) {
-            
             response.sendRedirect("404.jsp");
         }
      }  else if (!title.isEmpty()) {
@@ -49,6 +48,8 @@
             <price> <%= movie.getPrice()%> </price>
             <copies><%= movie.getCopies()%></copies>
             <status><%= movie.getStatus()%></status>
+            <img><%=movie.getImg()%></img>
+            <details><%=movie.getDetails()%></details>
         </movie>
         <%}%>
     </movies>
