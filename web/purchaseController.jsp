@@ -19,7 +19,7 @@
     for (Movie movie : cartMovie) {
         totalPrice = totalPrice + movie.getPrice();
     }
-    String orderStatus = "Success";
+    String orderStatus = "Submitted";
     HistoryApplication historyApp = (HistoryApplication) application.getAttribute("historyApp");
     if (historyApp == null) {
         historyApp = new HistoryApplication();

@@ -9,7 +9,7 @@
   </ol>
 </nav>
 <div class="jumbotron text-center">
-        <h1 class="display-1">Sorry ! :(</h1>
+        <h3 class="display-1"><i class="fa fa-frown-o fa-2x" aria-hidden="true"></i> </h3>
         <p class="lead"><b>404:</b> The Movie item you are looking for is not here !</p>
         <hr>
         <a class="btn btn-primary " href="index.jsp" role="button">Go Back</a>

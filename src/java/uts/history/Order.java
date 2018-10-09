@@ -19,21 +19,21 @@ import uts.movies.Movie;
 @XmlRootElement(name = "order")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Order  implements Serializable{
-//    @XmlElement(name = "orderId")
+    @XmlElement(name = "orderId")
     private int orderId;
-//    @XmlElement(name = "orderDate")
+    @XmlElement(name = "orderDate")
     private String orderDate;
-//    @XmlElement(name = "movie")
+    @XmlElement(name = "movie")
     private ArrayList<Movie> movies;
-//    @XmlElement(name = "name")
+    @XmlElement(name = "name")
     private String name;
-//    @XmlElement(name = "email")
+    @XmlElement(name = "email")
     private String email;
-//    @XmlElement(name = "paymentMethod")
+    @XmlElement(name = "paymentMethod")
     private String paymentMethod;
-//    @XmlElement(name = "totalPrice")
+    @XmlElement(name = "totalPrice")
     private double totalPrice;
-//    @XmlElement(name = "orderStatus")
+    @XmlElement(name = "orderStatus")
     private String orderStatus;
 
     public Order() {

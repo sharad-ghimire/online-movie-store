@@ -8,46 +8,59 @@
 </jsp:useBean>
 <%
     User user = (User) session.getAttribute("loggedUser");
-    User anotherUser = (User) session.getAttribute("registeredUser");
     String name = user.getName();
     String email = user.getEmail();
-    
-    if (user == null && anotherUser == null) {
+
+    if (user == null) {
         response.sendRedirect("login.jsp?error=Please Login first!!");
-    }  if(user!=null && anotherUser==null) {
-         
-    }%>
+    }
+
+    if (user != null) {%>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.jsp">Home</a></li>
         <li class="breadcrumb-item"><a href="profile.jsp">Profile</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Edit Page</li>
+        <li class="breadcrumb-item active" aria-current="page">Delete Page</li>
     </ol>
 </nav>
-<div class="text-center mt-3">
-    <h4>Hi <%= user.getName()%></h4>
-    <small class="text-center mt-2">Enter your email to delete your account.</small> 
-</div>
-<div class="card-header"> 
-    Enter your email address and name.
-</div>
-<div class="card-body">
-    <form action="index.jsp" method="post">
-        <div class="form-group">
-            <label for="email">Enter your email address</label>
-            <input type="email" value="<%= user.getEmail()%>" name="email" class="form-control" placeholder="Email" >
+
+<div class="jumbotron">
+    <div class="text-center mt-3">
+        <i class="fa fa-frown-o fa-4x" aria-hidden="true"></i> 
+        <h3 class="text-center lead  text-danger"> Do you really wanna leave us  <%= user.getName()%>!</h3>  
+
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="card">
+                <div class="card-body">
+                    <form action="index.jsp" method="post">
+                        <div class="form-group">
+                            <label for="email">Enter your email address to delete your account!</label>
+                            <input type="email" value="<%= user.getEmail()%>" name="email" class="form-control" placeholder="Email" >
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Enter Full Name </label>
+                            <input type="text" value="<%= user.getName()%>" name="name" class="form-control" placeholder="Name" >
+                        </div>
+                        <button type="submit" class="btn btn-danger ">Delete</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
-        <div class="form-group">
-            <label for="name">Edit Full Name</label>
-            <input type="text" value="<%= user.getName()%>" name="name" class="form-control" placeholder="Name" >
-        </div>
-        <button type="submit" class="btn btn-primary">Delete</button>
-    </form>
+        <div class="col-2"></div>
+
+    </div>
 </div>
+
+
 <%
     if ((name.equalsIgnoreCase(user.getName())) && (email.equalsIgnoreCase(user.getEmail()))) {
-        Users users = usersApp.getUsers();
-        users.removeUser(user);
+        //Users users = usersApp.getUsers();
+        //users.removeUser(user);
     }
     //if ((name.equalsIgnoreC ase(user.getName()) && (email.equalsIgnoreCase(user.getEmail())))) {
 //        Users users = usersApp.getUsers();
@@ -56,8 +69,7 @@
 //                
     //usersApp.updateXML();
     //}
-%><%
-   session.invalidate();
+    // session.invalidate();
 %>
 <!--<h1><%=name%></h1>
 <h1><%=email%></h1>-->
@@ -141,4 +153,6 @@
 //        }
 //    }
 %>
+
+<% }%>
 <%@include file="footer.jsp"%>

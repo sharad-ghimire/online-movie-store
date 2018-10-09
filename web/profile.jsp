@@ -10,8 +10,7 @@
 
 <%
     String success = (String) request.getParameter("success");
-
-    String firstTime = (String) session.getAttribute("firstTime");
+    
     User user = (User) session.getAttribute("loggedUser");
     User anotherUser = (User) session.getAttribute("registeredUser");
 
@@ -38,12 +37,12 @@
         <div class="card ml-3 mr-3">
             <div class="card-header">Your Purchase History</div>
             <div class="card-body"> 
-                <%if (firstTime == null || firstTime.equals("true")) {%>
-                <div class="text-center">
+               
+<!--                <div class="text-center">
                     <p>No Purchase History!<p>
                     <p>Purchase something by searching from <a href="index.jsp">here<a>.</p>
-                                </div>
-                                <%} else {%>
+                                </div>-->
+
                                 <!--SHOW HISTORY HERE-->
                                 <div class="container">
                                     <table class="table  table-bordered table-hover">
@@ -56,16 +55,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
-                                            <%@include file="showHistory.jsp" %>
-
+                                                <%@include file="showHistory.jsp" %>
                                         </tbody>
                                     </table>
                                 </div>
-                                <%}%>
+
                                 </div>
-                                </div>
-                                </div>
-                                <div class="col-lg-1"></div>
-                                </div>
+                           </div>
+                    </div>
+                <div class="col-lg-1"></div>
+           </div>
 

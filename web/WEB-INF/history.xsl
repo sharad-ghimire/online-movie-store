@@ -26,21 +26,29 @@
             </body>
         </html>
     </xsl:template>
-    <xsl:template match="order"> 
-        <tr>
-            <td>
-                <xsl:value-of select="orderId"/>
-            </td>
-            <td>
-                <xsl:value-of select="orderDate"/>
-            </td>
-            <td>
-                <xsl:apply-templates/>
-            </td>
-            <td>
-                <a class="btn btn-danger" href="deleteOrder.jsp?id={orderId}">Cancel Order <i class=" ml-3 close fa fa-times"></i></a>
-            </td>
-        </tr>      
+    <xsl:template match="order">
+        <xsl:variable name="orderStatus" select="orderStatus" />
+        <xsl:choose>
+            <xsl:when test="$orderStatus = 'Cancelled'">
+                
+            </xsl:when>
+            <xsl:otherwise>
+                <tr>
+                    <td>
+                        <xsl:value-of select="orderId"/>
+                    </td>
+                    <td>
+                        <xsl:value-of select="orderDate"/>
+                    </td>
+                    <td>
+                        <xsl:apply-templates/>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="deleteOrder.jsp?id={orderId}">Cancel Order <i class=" ml-3 close fa fa-times"></i></a>
+                    </td>
+                </tr>
+            </xsl:otherwise>
+        </xsl:choose>    
     </xsl:template> 
     <xsl:template match="orderId|orderDate|name|email|paymentMethod|totalPrice|orderStatus"/>
    

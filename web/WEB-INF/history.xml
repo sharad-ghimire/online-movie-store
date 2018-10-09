@@ -35,7 +35,6 @@
             <status>available</status>
             <img>Avengers.jpg</img>
             <details>Whatever is whatever whatever.Whatever is whatever whatever.Whatever is whatever whatever.</details>
-    
         </movie>
         <movie>
             <id>3</id>
@@ -47,9 +46,7 @@
             <status>available</status>
             <img>Avengers2.jpg</img>
             <details>When Tony Stark (Robert Downey Jr.) jump-starts a dormant peacekeeping program, things go terribly awry, forcing him, Thor (Chris Hemsworth), the Incredible Hulk (Mark Ruffalo) and the rest of the Avengers to reassemble. As the fate of Earth hangs in the balance, the team is put to the ultimate test as they battle Ultron, a technological terror hell-bent on human extinction. Along the way, they encounter two mysterious and powerful newcomers, Pietro and Wanda Maximoff.</details>
-    
-        </movie>
-        
+        </movie>      
         <name>C D</name>
         <email>c@d.com</email>
         <paymentMethod>Paypal</paymentMethod>
@@ -69,9 +66,7 @@
             <status>available</status>
             <img>Avengers.jpg</img>
             <details>Marvel's The Avengers(classified under the name Marvel Avengers Assemble in the United Kingdom and Ireland), or simply The Avengers, is a 2012 American superhero film based on the Marvel Comics superhero team of the same name, produced by Marvel Studios and distributed by Walt Disney Studios Motion Pictures.</details>
-    
         </movie>
-        
         <name>C D</name>
         <email>c@d.com</email>
         <paymentMethod>Paypal</paymentMethod>

@@ -22,10 +22,19 @@
     ArrayList<Order> orderList = new ArrayList();
     orderList = history.getMatchesForUser(usera.getEmail());
     
-    System.out.print("Order List "+ orderList);
-    //has to be changed for history.getMatchesForUser(user.getEmail()); when it's displaying
-//    out.println("orders:" + orderList);
-%>
+    for(Order order : orderList){
+        if(order.getMovies() == null){ %>
+        <tr>
+            <td>Sorry </td>
+            <td>No Oders</td>
+            <td>Yet</td>
+            <td>:(</td>
+        </tr>
+            
+        <% break; }
+
+    }
+    %>
 <c:set var = "xmltext"> 
     <history>
         <%  for (Order order : orderList) {%>
@@ -45,7 +54,6 @@
                 <img><%= movie.getDetails()%></img>
             </movie>
             <%}%>
-            
             <name><%= order.getName()%></name>
             <email><%= order.getEmail()%></email>
             <paymentMethod><%= order.getPaymentMethod()%></paymentMethod>

@@ -28,48 +28,60 @@
     <xsl:template match="movie">
         <div class="container">
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-6">
+                <div class="col-1"></div>
+                <div class="col-8">
                     <div class="card mt-2 mb-2">
-<!--                        <div class="view overlay">
-                            <img class="card-img-top" src="img/{img}" width="544" height="362" alt="{title}"></img>
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>-->
+
                         <div class="card-body">
-                            <h4 class="card-title">
-                                <i class="fa fa-film"></i><xsl:value-of select="title"/>
-                            </h4>
-                            <p class="card-text">
-                                <xsl:value-of select="details"/><br></br><br></br>
-                                <i class="fa fa-dollar" aria-hidden="true"></i> <span class="text-dark center"><xsl:value-of select="price"/></span>
-                                <br></br>
-                            </p>
-                            <xsl:variable name="status" select="status" />
-                                 <xsl:choose>
-                                    <xsl:when test="$status = 'available'">
-                                     <p> Availablility: <i class="fa fa-check" aria-hidden="true"></i>
+                            <div class="row">
+                                <div class="col-5">
+                                    <div class="view overlay">
+                                        <img class="card-img-top" src="img/{img}" alt="{title}"></img>
+                                        <a href="!#">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-7">
+                                    <h4 class="card-title">
+                                        <i class="fa fa-film"></i>
+                                        <xsl:value-of select="title"/>
+                                    </h4>
+                                    <p class="card-text">
+                                        <xsl:value-of select="details"/>
+                                        <br></br>
+                                        <br></br>
+                                        <i class="fa fa-dollar" aria-hidden="true"></i> 
+                                        <span class="text-dark center">
+                                            <xsl:value-of select="price"/>
+                                        </span>
+                                        <br></br>
                                     </p>
-                                    <a href="checkout.jsp?id={id}" class="btn btn-primary">Purchase</a>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                       <p> Availablility: <i class="fa fa-times" aria-hidden="true"></i><br></br>
-                                       <small>Sorry! This movie is not available right now!</small>
-                                        </p>
-                                        <button  type="button" class="btn btn-primary" disabled="disabled">Purchase</button>
-                                    </xsl:otherwise>
-                                  </xsl:choose>
+                                    <xsl:variable name="status" select="status" />
+                                    <xsl:choose>
+                                        <xsl:when test="$status = 'available'">
+                                            <p> Availablility: <i class="fa fa-check" aria-hidden="true"></i>
+                                            </p>
+                                            <a href="checkout.jsp?id={id}" class="btn btn-primary">Purchase</a>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <p> Availablility: <i class="fa fa-times" aria-hidden="true"></i>
+                                                <br></br>
+                                                <small>Sorry! This movie is not available right now!</small>
+                                            </p>
+                                            <button  type="button" class="btn btn-primary" disabled="disabled">Purchase</button>
+                                        </xsl:otherwise>
+                                    </xsl:choose>    
+                                    
+                                </div>
                                 
-                                
-                                
-                            
-                            
+                            </div>
                             
                         </div>
                     </div>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
                
             </div>
         </div>
