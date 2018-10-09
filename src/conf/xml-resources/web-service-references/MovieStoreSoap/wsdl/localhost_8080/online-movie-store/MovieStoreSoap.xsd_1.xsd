@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://soap.uts/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://soap.uts/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="IOException" type="tns:IOException"/>
+
+<xs:element name="JAXBException" type="tns:JAXBException"/>
+
+<xs:element name="cancelMovieOrder" type="tns:cancelMovieOrder"/>
+
+<xs:element name="cancelMovieOrderResponse" type="tns:cancelMovieOrderResponse"/>
+
+<xs:element name="deleteUser" type="tns:deleteUser"/>
+
+<xs:element name="deleteUserResponse" type="tns:deleteUserResponse"/>
+
+<xs:element name="fetchLogin" type="tns:fetchLogin"/>
+
+<xs:element name="fetchLoginResponse" type="tns:fetchLoginResponse"/>
+
+<xs:element name="fetchMovies" type="tns:fetchMovies"/>
+
+<xs:element name="fetchMoviesResponse" type="tns:fetchMoviesResponse"/>
+
+<xs:element name="fetchUsers" type="tns:fetchUsers"/>
+
+<xs:element name="fetchUsersResponse" type="tns:fetchUsersResponse"/>
+
+<xs:element name="getApp" type="tns:getApp"/>
+
+<xs:element name="getAppResponse" type="tns:getAppResponse"/>
+
+<xs:element name="getHistoryApp" type="tns:getHistoryApp"/>
+
+<xs:element name="getHistoryAppResponse" type="tns:getHistoryAppResponse"/>
+
+<xs:element name="getOrderByTitle" type="tns:getOrderByTitle"/>
+
+<xs:element name="getOrderByTitleResponse" type="tns:getOrderByTitleResponse"/>
+
+<xs:element name="getOrderByorderID" type="tns:getOrderByorderID"/>
+
+<xs:element name="getOrderByorderIDResponse" type="tns:getOrderByorderIDResponse"/>
+
+<xs:element name="getuserApp" type="tns:getuserApp"/>
+
+<xs:element name="getuserAppResponse" type="tns:getuserAppResponse"/>
+
+<xs:element name="history" type="tns:history"/>
+
+<xs:element name="matchID" type="tns:matchID"/>
+
+<xs:element name="matchIDResponse" type="tns:matchIDResponse"/>
+
+<xs:element name="movie" type="tns:movie"/>
+
+<xs:element name="movies" type="tns:movies"/>
+
+<xs:element name="order" type="tns:order"/>
+
+<xs:element name="user" type="tns:user"/>
+
+<xs:element name="users" type="tns:users"/>
+
+<xs:complexType name="getHistoryApp">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getHistoryAppResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:historyApplication" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="historyApplication">
+<xs:sequence>
+<xs:element name="filePath" type="xs:string" minOccurs="0"/>
+<xs:element name="history" type="tns:history" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="history">
+<xs:sequence>
+<xs:element name="order" type="tns:order" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="order">
+<xs:sequence>
+<xs:element name="orderId" type="xs:int"/>
+<xs:element name="orderDate" type="xs:string" minOccurs="0"/>
+<xs:element name="movies" type="tns:movie" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="paymentMethod" type="xs:string" minOccurs="0"/>
+<xs:element name="totalPrice" type="xs:double"/>
+<xs:element name="orderStatus" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movie">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+<xs:element name="genre" type="xs:string" minOccurs="0"/>
+<xs:element name="date" type="xs:string" minOccurs="0"/>
+<xs:element name="price" type="xs:double"/>
+<xs:element name="copies" type="xs:int"/>
+<xs:element name="status" type="xs:string" minOccurs="0"/>
+<xs:element name="img" type="xs:string" minOccurs="0"/>
+<xs:element name="details" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="JAXBException">
+<xs:sequence>
+<xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+<xs:element name="linkedException" type="tns:throwable" minOccurs="0"/>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="throwable">
+<xs:sequence>
+<xs:element name="stackTrace" type="tns:stackTraceElement" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="stackTraceElement" final="extension restriction">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="IOException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteUser">
+<xs:sequence>
+<xs:element name="arg0" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="user">
+<xs:sequence>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="gender" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteUserResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getuserApp">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getuserAppResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:userApplication" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userApplication">
+<xs:sequence>
+<xs:element name="users" type="tns:users" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="users">
+<xs:sequence>
+<xs:element name="user" type="tns:user" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="matchID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="matchIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:order" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fetchMovies">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="fetchMoviesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:movie" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getApp">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAppResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:movieApplication" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movieApplication">
+<xs:sequence>
+<xs:element name="filePath" type="xs:string" minOccurs="0"/>
+<xs:element name="movies" type="tns:movies" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="movies">
+<xs:sequence>
+<xs:element name="movie" type="tns:movie" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelMovieOrder">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelMovieOrderResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="fetchUsers">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="fetchUsersResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:users" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fetchLogin">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fetchLoginResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:user" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOrderByorderID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOrderByorderIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:order" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOrderByTitle">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getOrderByTitleResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:order" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
