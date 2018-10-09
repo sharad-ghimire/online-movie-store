@@ -8,8 +8,8 @@ package uts.soap.client;
 //import In;
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
 /**
  *
@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class MovieStoreSoapClient {
 
-    public static void main(String[] args) throws Exception_Exception, IOException_Exception, JAXBException_Exception {
+    public static void main(String[] args) throws IOException_Exception, JAXBException_Exception, Exception_Exception {
         MovieStoreSoap_Service locator = new MovieStoreSoap_Service();
         MovieStoreSoap soap = locator.getMovieStoreSoapPort();
         MovieStoreSoapClient soapClient = new MovieStoreSoapClient();
@@ -90,17 +90,19 @@ public class MovieStoreSoapClient {
             System.out.println("Released Date: " + movies.getDate());
             System.out.println("Available Copies: " + movies.getCopies());
             System.out.println("Price: " + movies.getPrice());
-        }
-        for (Movie movie : soap.fetchMovies()) {
+        
+        
             //return movie;
 
             System.out.print("Enter the title of a movie you want to order: ");
             String name = In.nextLine();
-            if (name.equalsIgnoreCase(movie.getTitle())) {
-                return movie;
+            if (name.equalsIgnoreCase(movies.getTitle())) {
+                return movies;
+                
             } else {
-                System.out.println("No such movie available.");
+                System.out.println("No such movie available.");break;
             }
+        
         }
 
         return null;
