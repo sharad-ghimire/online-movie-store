@@ -88,6 +88,18 @@ public class History implements Serializable {
         return null;
     }
     
+    public Order getOrderByOrderId(int id) {
+        for (Order order : orders) {
+            
+            if(order.getOrderId() == id)
+            {
+                return order;
+            }
+            
+        }
+        return null;
+    }
+    
     public boolean reserveMovie(ArrayList<Movie> movies, String name, String email, String paymentMethod, double totalPrice, String orderStatus) {
         int oderId = new Random().nextInt(1000);
         String orderDate = java.time.LocalDate.now().toString();

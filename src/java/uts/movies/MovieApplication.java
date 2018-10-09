@@ -15,6 +15,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import uts.history.Order;
 
 /**
  *
@@ -81,4 +82,35 @@ public class MovieApplication implements Serializable{
     public void setMovies(Movies movies) {
         this.movies = movies;
     }  
+    
+    public void updateCopies(Order orderToCancel) throws Exception
+    {
+        int copies = 0;
+        Movie movieToEdit = new Movie();
+        for (Movie movie : orderToCancel.getMovies())
+        {
+            copies = movie.getCopies();
+            movieToEdit = movies.idChecker(movie.getId());
+            movies.remove(movieToEdit);
+            movieToEdit.setCopies(movieToEdit.getCopies() + copies);
+            if((movieToEdit.getStatus().equals("notavailable") && (movieToEdit.getCopies()>0)))
+            {
+                movieToEdit.setStatus("available");
+            }
+            movies.addMovie(movieToEdit);
+        }
+        
+        /*for (Movie movie : movies.getList())
+        {
+            if((movie.getStatus().equals("notavailable") && (movie.getCopies()>0)))
+            {
+                movieToEdit = movies.idChecker(movie.getId());
+                movies.remove(movieToEdit);
+                movieToEdit.setStatus("available");
+                movies.addMovie(movieToEdit);
+            }
+        }*/
+        
+        updateXML(movies, filePath);
+    }
 }

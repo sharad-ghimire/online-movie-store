@@ -14,6 +14,22 @@
 <jsp:useBean id="historyApp" class="uts.history.HistoryApplication" scope="application">
     <jsp:setProperty name="historyApp" property="filePath" value="<%=filePath%>"/>
 </jsp:useBean>
+
+<% String filePathMovies = application.getRealPath("WEB-INF/movies.xml");%>
+<jsp:useBean id="moviesApp" class="uts.movies.MovieApplication" scope="application">
+    <jsp:setProperty name="moviesApp" property="filePath" value="<%=filePathMovies%>"/>
+</jsp:useBean>
+
+<%
+    String cancelId = (String) request.getParameter("cancelId");
+%>
+<%if (cancelId != null) { %>
+<div class="alert alert-success">
+    <%out.print(cancelId);%> 
+</div>
+<%  }
+%>
+
 <%
     //we need to get the user here
     User usera = (User) session.getAttribute("loggedUser");
@@ -21,6 +37,24 @@
 //    out.println("history: " + history);
     ArrayList<Order> orderList = new ArrayList();
     orderList = history.getMatchesForUser(usera.getEmail());
+    
+    
+    
+    if (cancelId != null) 
+    { 
+        Order orderToCancel = history.getOrderByOrderId(Integer.parseInt(cancelId));
+        
+        //out.print(orderList);
+        //out.print(orderToCancel);
+        if (orderList.contains(orderToCancel))
+        {
+            orderList.remove(orderToCancel);
+            history.setOrders(orderList);
+            historyApp.updateXML(history, filePath);
+            moviesApp.updateCopies(orderToCancel);
+        }
+    }
+
     
     for(Order order : orderList){
         if(order.getMovies() == null){ %>

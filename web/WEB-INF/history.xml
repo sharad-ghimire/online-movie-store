@@ -73,4 +73,44 @@
         <totalPrice>65</totalPrice>
         <orderStatus>Submitted</orderStatus>
     </order>
+    <order>
+        <orderId>104</orderId>
+        <orderDate>2018-01-23</orderDate>
+        <movie>
+            <id>2</id>
+            <title>Whatever</title>
+            <genre>Whatever</genre>
+            <date>2018-09-08</date>
+            <price>2.99</price>
+            <copies>100</copies>
+            <status>available</status>
+            <img>Avengers.jpg</img>
+            <details>Whatever is whatever whatever.Whatever is whatever whatever.Whatever is whatever whatever.</details>
+        </movie>
+        <name>C D</name>
+        <email>c@d.com</email>
+        <paymentMethod>Paypal</paymentMethod>
+        <totalPrice>65</totalPrice>
+        <orderStatus>Submitted</orderStatus>
+    </order>
+    <order>
+        <orderId>110</orderId>
+        <orderDate>2018-01-23</orderDate>
+        <movie>
+            <id>2</id>
+            <title>Whatever</title>
+            <genre>Whatever</genre>
+            <date>2018-09-08</date>
+            <price>2.99</price>
+            <copies>100</copies>
+            <status>available</status>
+            <img>Avengers.jpg</img>
+            <details>Whatever is whatever whatever.Whatever is whatever whatever.Whatever is whatever whatever.</details>
+        </movie>
+        <name>C D</name>
+        <email>c@d.com</email>
+        <paymentMethod>Paypal</paymentMethod>
+        <totalPrice>65</totalPrice>
+        <orderStatus>Submitted</orderStatus>
+    </order>
 </history>

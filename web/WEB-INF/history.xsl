@@ -44,12 +44,13 @@
                         <xsl:apply-templates/>
                     </td>
                     <td>
-                        <a class="btn btn-danger" href="deleteOrder.jsp?id={orderId}">Cancel Order <i class=" ml-3 close fa fa-times"></i></a>
+                        <a class="btn btn-danger" href="profile.jsp?cancelId={orderId}">Cancel Order <i class=" ml-3 close fa fa-times"></i></a>
                     </td>
                 </tr>
             </xsl:otherwise>
         </xsl:choose>    
     </xsl:template> 
+    
     <xsl:template match="orderId|orderDate|name|email|paymentMethod|totalPrice|orderStatus"/>
    
     <xsl:template match="movie">

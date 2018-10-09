@@ -24,6 +24,9 @@
 </div>
 <%  }
 %>
+
+
+
 <div class="row mt-3 mb-3">
     <div class="col-lg-12 text-center ">
         <a class="btn btn-primary text-white" href="editUser.jsp">Edit Account</a>
