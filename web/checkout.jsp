@@ -39,6 +39,7 @@
     
     if(movie!=null)
     {
+        movie.setCopies(1);
         cartMovies.add(movie);
     }
     double totalPrice = 0.0;

@@ -25,7 +25,7 @@
 %>
 <%if (cancelId != null) { %>
 <div class="alert alert-success">
-    <%out.print(cancelId);%> 
+    <%out.print("Order number " + cancelId + " correctly cancelled");%> 
 </div>
 <%  }
 %>
@@ -51,7 +51,7 @@
             orderList.remove(orderToCancel);
             history.setOrders(orderList);
             historyApp.updateXML(history, filePath);
-            moviesApp.updateCopies(orderToCancel);
+            moviesApp.incrementCopies(orderToCancel);
         }
     }
 

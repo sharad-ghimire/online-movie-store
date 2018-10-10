@@ -100,11 +100,26 @@ public class History implements Serializable {
         return null;
     }
     
-    public boolean reserveMovie(ArrayList<Movie> movies, String name, String email, String paymentMethod, double totalPrice, String orderStatus) {
-        int oderId = new Random().nextInt(1000);
+    public Order reserveMovie(ArrayList<Movie> movies, String name, String email, String paymentMethod, double totalPrice, String orderStatus) {
+        int orderId = new Random().nextInt(1000);
+                
+        ArrayList<Integer> ids = new ArrayList<Integer>();
+        
+        for (Order order : orders)
+        {
+            ids.add(order.getOrderId());
+        }
+        
+        while(ids.contains(orderId))
+        {
+            orderId = new Random().nextInt(1000);
+        }
+        
         String orderDate = java.time.LocalDate.now().toString();
         System.out.print(orderDate);
-        orders.add(new Order(oderId, movies, orderDate, name, email, paymentMethod, totalPrice, orderStatus));
-        return true;
+        Order order = new Order(orderId, movies, orderDate, name, email, paymentMethod, totalPrice, orderStatus);
+        orders.add(order);
+        
+        return order;
     }
 }

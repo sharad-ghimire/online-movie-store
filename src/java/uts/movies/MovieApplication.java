@@ -83,7 +83,7 @@ public class MovieApplication implements Serializable{
         this.movies = movies;
     }  
     
-    public void updateCopies(Order orderToCancel) throws Exception
+    public void incrementCopies(Order orderToCancel) throws Exception
     {
         int copies = 0;
         Movie movieToEdit = new Movie();
@@ -100,16 +100,30 @@ public class MovieApplication implements Serializable{
             movies.addMovie(movieToEdit);
         }
         
-        /*for (Movie movie : movies.getList())
+        
+        
+        updateXML(movies, filePath);
+    }
+    
+    
+    public void decrementCopies(Order orderToCancel) throws Exception
+    {
+        int copies = 0;
+        Movie movieToEdit = new Movie();
+        for (Movie movie : orderToCancel.getMovies())
         {
-            if((movie.getStatus().equals("notavailable") && (movie.getCopies()>0)))
+            copies = movie.getCopies();
+            movieToEdit = movies.idChecker(movie.getId());
+            movies.remove(movieToEdit);
+            movieToEdit.setCopies(movieToEdit.getCopies() - copies);
+            if((movieToEdit.getStatus().equals("available") && (movieToEdit.getCopies()==0)))
             {
-                movieToEdit = movies.idChecker(movie.getId());
-                movies.remove(movieToEdit);
-                movieToEdit.setStatus("available");
-                movies.addMovie(movieToEdit);
+                movieToEdit.setStatus("notavailable");
             }
-        }*/
+            movies.addMovie(movieToEdit);
+        }
+        
+        
         
         updateXML(movies, filePath);
     }
