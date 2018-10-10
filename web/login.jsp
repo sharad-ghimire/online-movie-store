@@ -8,6 +8,8 @@
 <%@include file="header.jsp" %>
 <%@include file="navbar.jsp" %>
 <% String error = (String) request.getParameter("error");
+    String emailErr = (String)request.getParameter("emailError");
+    String passErr = (String)request.getParameter("passError");
     User user = (User) session.getAttribute("loggedUser");
     if(user != null){
         response.sendRedirect("profile.jsp");
@@ -28,14 +30,21 @@
                     <%  } %>
                     <form action="loginController.jsp" method="POST">
                         <div class="form-group">
+                            <% if(emailErr != null){ %>
+                    <div class="alert alert-danger"><%out.print(emailErr);%> </div>
+                    <%  } %>
                             <label for="email">Email address</label>
-                            <input type="email" name="email" class="form-control" placeholder="Enter email">
+                            <input type="text" name="email" class="form-control" placeholder="Enter email">
                         </div>
                         <div class="form-group">
+                            <% if(passErr != null){ %>
+                    <div class="alert alert-danger"><%out.print(passErr);%> </div>
+                    <%  } %>
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control" placeholder="Password">
                         </div>
-                        <button type="submit" class="btn btn-primary">Log In</button>
+                            <!--<tr><td><input type="hidden" value="submitted" name="submitted"></td>-->
+                        <button type="submit" class=" btn btn-primary">Log In</button>
                     </form>  
                 </div>
                 <div class="card-footer text-muted">
@@ -47,11 +56,4 @@
 
     </div>
 </div>
-
-
-
-
-
-
-
 <%@include file="footer.jsp" %>

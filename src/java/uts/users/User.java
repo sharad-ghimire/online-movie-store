@@ -18,25 +18,36 @@ public class User implements Serializable {
     private String password;
     @XmlElement(name = "gender")
     private String gender;
+    private String address;
 
     public User() {
         super();
     }
 
-    public User(String email, String password, String name, String gender) {
+    public User(String email, String password, String name, String gender, String address) {
         super();
         this.email = email;
         this.password = password;
         this.name = name;
         this.gender = gender;
+        this.address = address;
     }
 
     public void updateDetails(String email, String name, String password) {
-        this.email=email;
-        this.name=name;
-        this.password=password;
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        //this.address = address;
+
     }
-     
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getEmail() {
         return email;

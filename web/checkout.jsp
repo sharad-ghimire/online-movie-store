@@ -1,3 +1,4 @@
+<%@page import="uts.controller.Validator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uts.movies.*"%>
 <%@include file="header.jsp" %>
@@ -12,6 +13,7 @@
     String idOfMovie = request.getParameter("id");
     String deleteMovie = request.getParameter("deleteId");
     String decreaseMovie = request.getParameter("decreaseId");
+    Validator v = new Validator();
     
     Movie movie = movies.idChecker(idOfMovie);
     Movie movieToDelete = movies.idChecker(deleteMovie);

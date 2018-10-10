@@ -1,3 +1,4 @@
+<%@page import="uts.controller.Validator"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="uts.movies.*" import="java.util.*" %>
@@ -16,14 +17,15 @@
     String toDate = request.getParameter("toDate");
 
     ArrayList<Movie> movieList = new ArrayList();
+    Validator v = new Validator();
 
     if (!genre.isEmpty()) {
         movieList = movies.getMatchesForGenre(genre);
-       
+
         if (movieList.isEmpty()) {
             response.sendRedirect("404.jsp");
         }
-     }  else if (!title.isEmpty()) {
+    } else if (!title.isEmpty()) {
         movieList = movies.getMatchesForTitle(title);
         if (movieList.isEmpty()) {
             response.sendRedirect("404.jsp");
@@ -33,7 +35,15 @@
         if (movieList.isEmpty()) {
             response.sendRedirect("404.jsp");
         }
-    } else {
+    } else if (v.validateYearsPattern(fromDate)) {
+        response.sendRedirect("searchController.jsp?yearError=Date Format is incorrect.");
+    }
+    
+    else if (v.validateYearsPattern(toDate)) {
+        response.sendRedirect("searchController.jsp?yearError=Date Format is incorrect.");
+    }
+    
+    else {
         response.sendRedirect("404.jsp");
     }
 %>

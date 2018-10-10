@@ -2,6 +2,9 @@
 <%@page import="uts.users.User"%>
 <%@include file="header.jsp" %>
 <%@include file="navbar.jsp" %>
+<%
+
+%>
 <div class="container text-center">
     <div class="row mt-3">
         <div class="col-lg-12">
@@ -33,6 +36,7 @@
                             <label for="fromDate" class="col-sm-2 col-form-label">From</label>
                             <div class="col-sm-4">
                                 <div class="md-form mt-0">
+                                    
                                     <input type="date" name="fromDate" class="form-control" id="genre">
                                 </div>
                             </div>

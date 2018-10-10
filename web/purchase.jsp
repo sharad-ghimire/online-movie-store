@@ -1,3 +1,4 @@
+<%@page import="uts.controller.Validator"%>
 <%@page import="uts.movies.Movie"%>
 <%@page import="java.util.ArrayList"%>
 <%@include file="header.jsp" %>
@@ -5,10 +6,13 @@
 <%
     User user = (User) session.getAttribute("loggedUser");
     ArrayList<Movie> cartMovies = (ArrayList<Movie>) session.getAttribute("cartMovies");
+    String addressErr = (String) request.getParameter("addressErr");
+    
+    Validator v = new Validator();
     double totalPrice = 0.0;
 
     for (Movie movie : cartMovies) {
-        totalPrice = totalPrice + movie.getPrice()*movie.getCopies();
+        totalPrice = totalPrice + movie.getPrice() * movie.getCopies();
     }
 %>
 
@@ -32,7 +36,7 @@
                             <div class="col-lg-6">
                                 <div class="card mr-3">
                                     <div class="card-header">Payment Information </div>
-                                    
+
                                     <div class="card-body">
 
                                         <div class="row">
@@ -42,7 +46,11 @@
                                             </div>
                                             <div class="col-lg-6">
                                                 <label id="address">Address</label>
-                                                <input name="address" type="text" id="address" class="form-control"> 
+                                                
+                                                <input name="address" type="text" id="address" class="form-control" <%if (user != null) {%>value="<%= user.getAddress()%>" <%}%>> 
+                                                <% if (addressErr != null) { %>
+                                                <div class="alert alert-danger"><%out.print(addressErr);%> </div>
+                                                <%  } %>
                                             </div>
 
                                         </div>
