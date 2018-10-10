@@ -32,7 +32,7 @@
     double totalPrice = 0.0;
 
     for (Movie movie : cartMovie) {
-        totalPrice = totalPrice + movie.getPrice();
+        totalPrice = totalPrice + movie.getPrice()*movie.getCopies();
     }
     String orderStatus = "Submitted";
     HistoryApplication historyApp = (HistoryApplication) application.getAttribute("historyApp");

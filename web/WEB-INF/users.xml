@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<users>
+<users  xmlns="http://www.uts.edu.au/31284/wsd-diary"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-diary users.xsd">
     <user>
         <email>a@b.com</email>
         <name>A B</name>
         <password>abcd</password>
         <gender>male</gender>
+        <address>161, Broadway St</address>
     </user>
     <user>
         <email>c@d.com</email>
         <name>C D</name>
         <password>abcd</password>
         <gender>male</gender>
+        <address>131, Broadway St</address>
     </user>
 </users>

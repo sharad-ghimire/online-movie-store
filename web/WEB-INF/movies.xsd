@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    
+    <xs:element name="movies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="movie" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="id" type="xs:string"/>
+                            <xs:element name="title" type="xs:string"/>
+                            <xs:element name="genre" type="xs:string"/>
+                            <xs:element name="date" type="xs:string"/>
+                            <xs:element name="price" type="xs:string"/>
+                            <xs:element name="copies" type="xs:string"/>
+                            <xs:element name="status" type="xs:string"/>
+                            <xs:element name="img" type="xs:string"/>
+                            <xs:element name="details" type="xs:string"/>    
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    
+</xs:schema>
