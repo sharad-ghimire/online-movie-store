@@ -4,7 +4,7 @@
 <% 
     String filePath = application.getRealPath("WEB-INF/users.xml");
     
-    UserApplication userApp = (UserApplication) application.getAttribute("movieApp");
+    UserApplication userApp = (UserApplication) application.getAttribute("userApp");
     if (userApp == null) {
         userApp = new UserApplication();
         userApp.setFilePath(filePath);

@@ -11,26 +11,31 @@ and open the template in the editor.
     <xs:element name="history">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Order" maxOccurs="unbounded">
+                <xs:element name="order" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="OrderID" type="xs:string"/>
+                            <xs:element name="orderId" type="xs:string"/>
+                            <xs:element name="orderDate" type="xs:string"/>
                             <xs:element name="movie" maxOccurs="unbounded">
                                 <xs:complexType>
                                     <xs:sequence>
-                                        <xs:element name="Title" type="xs:string"/>
-                                        <xs:element name="Genre" type="xs:string"/>
-                                        <xs:element name="ReleaseDate" type="xs:string"/>
-                                        <xs:element name="Price" type="xs:string"/>
-                                        <xs:element name="Copies" type="xs:string"/>
+                                        <xs:element name="id" type="xs:string"/>
+                                        <xs:element name="title" type="xs:string"/>
+                                        <xs:element name="genre" type="xs:string"/>
+                                        <xs:element name="date" type="xs:string"/>
+                                        <xs:element name="price" type="xs:string"/>
+                                        <xs:element name="copies" type="xs:string"/>
+                                        <xs:element name="status" type="xs:string"/>
+                                        <xs:element name="img" type="xs:string"/>
+                                        <xs:element name="details" type="xs:string"/>
                                     </xs:sequence>
                                 </xs:complexType>
                             </xs:element>                               
-                            <xs:element name="FullName" type="xs:string"/>   
-                            <xs:element name="Email" type="xs:string"/>
-                            <xs:element name="PaymentMethod" type="xs:string"/>
-                            <xs:element name="TotalPrice" type="xs:string"/>
-                            <xs:element name="OrderStatus" type="xs:string"/>
+                            <xs:element name="name" type="xs:string"/>   
+                            <xs:element name="email" type="xs:string"/>
+                            <xs:element name="paymentMethod" type="xs:string"/>
+                            <xs:element name="totalPrice" type="xs:string"/>
+                            <xs:element name="orderStatus" type="xs:string"/>
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>

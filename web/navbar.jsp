@@ -15,7 +15,12 @@
               <a class="nav-link" href="index.jsp">Home </a>
             </li>
             
+            
+            
             <% if(loggedUser != null&& registeredUser==null) { %> 
+            
+            
+            
             
             <li class="nav-item">
               <a class="nav-link" href="editUser.jsp">Edit Profile</a>
@@ -28,8 +33,10 @@
             <li class="nav-item"><a class="nav-link" href="profile.jsp"><%= loggedUser.getName()%></a></li>
             
             
-            <% } else if (registeredUser != null) {%>
-            <li class="nav-item">
+            
+            
+            <%// } else if (registeredUser != null) {%>
+            <!--<li class="nav-item">
               <a class="nav-link" href="editUser.jsp">View Profile</a>
             </li>
             
@@ -37,7 +44,7 @@
               <a class="nav-link" href="logoutController.jsp">Logout</a>
             </li>
             
-            <li class="nav-item"><a class="nav-link" href="profile.jsp"><%= registeredUser.getName()%></a></li>
+            <li class="nav-item"><a class="nav-link" href="profile.jsp"><//%= registeredUser.getName()%></a></li>-->
                 
             
             <%} else { %>
@@ -50,6 +57,10 @@
             </li>
             
             <%}%>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="checkout.jsp">Cart</a>
+            </li>
             
             
           </ul>

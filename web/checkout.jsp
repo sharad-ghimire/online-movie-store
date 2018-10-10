@@ -11,10 +11,12 @@
 
     String idOfMovie = request.getParameter("id");
     String deleteMovie = request.getParameter("deleteId");
+    String decreaseMovie = request.getParameter("decreaseId");
     
     Movie movie = movies.idChecker(idOfMovie);
     Movie movieToDelete = movies.idChecker(deleteMovie);
-
+    Movie movieToDecrease = movies.idChecker(decreaseMovie);
+    
     ArrayList<Movie> cartMovies = (ArrayList<Movie>) session.getAttribute("cartMovies");
    
     
@@ -39,13 +41,47 @@
     
     if(movie!=null)
     {
-        movie.setCopies(1);
-        cartMovies.add(movie);
+        //check if the movie already exists in the cart movies
+        //if it exists, increase the number of copies
+        //else, add it with only 1 copy
+        
+        if(cartMovies.contains(movie))
+        {
+            cartMovies.remove(movie);
+            movie.setCopies(movie.getCopies()+1);
+            cartMovies.add(movie);
+        }
+        else
+        {
+            movie.setCopies(1);
+            cartMovies.add(movie);
+        }
+        session.setAttribute("cartMovies", cartMovies);
     }
+    
+    //decrease movie
+    if(movieToDecrease!=null)
+    {
+        //check it contains it
+        if(cartMovies.contains(movieToDecrease))
+        {
+            cartMovies.remove(movieToDecrease);
+            movieToDecrease.setCopies(movieToDecrease.getCopies()-1);
+            
+            //if it stills has copies, add it again
+            if(movieToDecrease.getCopies()>0)
+            {
+                cartMovies.add(movieToDecrease);
+            }
+            session.setAttribute("cartMovies", cartMovies);
+        }
+    }
+    
+    
     double totalPrice = 0.0;
 
     for (Movie movie1 : cartMovies) {
-        totalPrice = totalPrice + movie1.getPrice();
+        totalPrice = totalPrice + movie1.getPrice()*movie1.getCopies();
     }
     
     //code to delete the selected movie
@@ -63,13 +99,15 @@ System.out.print(cartMovies);  %>
               </div>
               <div class="card-body">              
                     <div class="row">
-                        <div class="col-lg-6"><h4>Your Movie Name</h4></div>
+                        <div class="col-lg-3"><h4>Your Movie Name</h4></div>
+                        <div class="col-lg-3"><h4>Number of Copies</h4></div>
                         <div class="col-lg-3"><h4>Item Price</h4></div>
                          <div class="col-lg-3"></div> 
                     </div>
                 <% for (Movie movie1 : cartMovies) { %>
                     <div class="row">
-                       <div class="col-lg-6 mt-3"><h6> <%=movie1.getTitle() %></h6></div>
+                       <div class="col-lg-3 mt-3"><h6> <%=movie1.getTitle() %></h6></div>
+                       <div class="col-lg-3 mt-3"><a href="checkout.jsp?decreaseId=<%=movie1.getId()%>">-</a> <%=movie1.getCopies() %> <a href="checkout.jsp?id=<%=movie1.getId()%>">+</a></div>
                        <div class="col-lg-3 mt-3"><%=movie1.getPrice() %></div>
                        <div class="col-lg-3 mt-3"><a class="btn btn-danger" href="checkout.jsp?deleteId=<%=movie1.getId()%>">Remove</a></div> 
                     </div>

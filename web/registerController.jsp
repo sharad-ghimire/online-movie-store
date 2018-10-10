@@ -15,7 +15,7 @@
     User anotherUser = users.emailChecker(email);
     
     if (agreeTOS != null && anotherUser == null) {
-        User user = new User(email, name, password, gender);
+        User user = new User(email, password, name, gender);
         session.setAttribute("loggedUser", user);
         users.addUser(user);
         userApp.saveUsers(users, filePath);

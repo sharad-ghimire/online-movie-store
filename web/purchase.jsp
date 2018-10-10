@@ -8,7 +8,7 @@
     double totalPrice = 0.0;
 
     for (Movie movie : cartMovies) {
-        totalPrice = totalPrice + movie.getPrice();
+        totalPrice = totalPrice + movie.getPrice()*movie.getCopies();
     }
 %>
 
